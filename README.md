@@ -66,9 +66,8 @@ All annotations follow COCO JSON format. Each dataset subset contains an `annota
 
 > CDIOD is built from three existing datasets (DIOR, Pascal VOC 2012, RUOD) by partitioning
 > their existing annotations into phases. See **[DATASETS.md](DATASETS.md)** for the provenance
-> of each component, the license terms that apply to it, the required citations, per-file
-> SHA-256 checksums, and known issues (duplicate images and two out-of-bounds annotations
-> inherited from the source datasets).
+> of each component, the license terms that apply to it, per-file SHA-256 checksums, and known
+> issues (duplicate images and two out-of-bounds annotations inherited from the source datasets).
 
 ### Conventional IOD (coco)
 
@@ -146,7 +145,7 @@ data/ODinW13/
 
 > **Download**:
 > - **CDIOD & COCO split**: Available via [Google Drive](https://drive.google.com/drive/folders/1JdZHhIoB7REwMNiPnzVT_v0XJ-7txaaa?usp=drive_link) / [Quark](https://pan.quark.cn/s/e152a3aaf4cb). Download and place under `data/CDIOD/` and `data/coco/annotations/` respectively.
->   Note that `RUOD/train/annotations_without_background.json` (required by the 5-phase setting) is provided as a separate file next to the archives — see [DATASETS.md §4](DATASETS.md).
+>   `CDIOD_annotations.tar.gz` was re-uploaded to add `RUOD/train/annotations_without_background.json`, which the 5-phase setting requires; if you downloaded it before, re-download. Checksums in [DATASETS.md §3](DATASETS.md).
 > - **ODinW13**: Follow the dataset preparation in [IVLOD](https://github.com/JarintotionDin/ZiRaGroundingDINO).
 >
 > Create symlinks to the actual data locations if needed, e.g., `ln -s /path/to/your/CDIOD data/CDIOD`.

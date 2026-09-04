@@ -90,100 +90,24 @@ those rights. Each component's terms, as stated by its own licensor:
   requirement anywhere is citing the Neurocomputing 2023 paper. If you need a documented license
   for RUOD, please contact Fu et al. directly.
 
----
-
-## 3. Citation
-
-If you use CDIOD, please cite the three original datasets and the intermediate re-packagers
-alongside our paper. Attribution is a license requirement for DIOR (CC BY-NC 4.0), not only a
-courtesy.
-
-```bibtex
-@InProceedings{Wang_2026_CVPR,
-  author    = {Wang, Xu and Lin, Zihan and Zhang, Yixin and Wang, Zilei},
-  title     = {Boosting Vision-Language Models Towards Cross-Domain Incremental Object Detection},
-  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-  month     = {June}, year = {2026}, pages = {6249--6260}
-}
-
-@article{LI2020296,
-  title   = {Object detection in optical remote sensing images: A survey and a new benchmark},
-  author  = {Ke Li and Gang Wan and Gong Cheng and Liqiu Meng and Junwei Han},
-  journal = {ISPRS Journal of Photogrammetry and Remote Sensing},
-  volume  = {159}, pages = {296--307}, year = {2020},
-  doi     = {10.1016/j.isprsjprs.2019.11.023}
-}
-
-@Article{Everingham10,
-  author  = "Everingham, M. and Van~Gool, L. and Williams, C. K. I. and Winn, J. and Zisserman, A.",
-  title   = "The Pascal Visual Object Classes (VOC) Challenge",
-  journal = "International Journal of Computer Vision",
-  volume  = "88", number = "2", pages = "303--338", month = jun, year = "2010"
-}
-
-@article{fu2023rethinking,
-  title     = {Rethinking general underwater object detection: Datasets, challenges, and solutions},
-  author    = {Fu, Chenping and Liu, Risheng and Fan, Xin and Chen, Puyang and Fu, Hao
-               and Yuan, Wanqi and Zhu, Ming and Luo, Zhongxuan},
-  journal   = {Neurocomputing}, volume = {517}, pages = {243--256}, year = {2023},
-  publisher = {Elsevier}
-}
-
-@inproceedings{fu2025cross,
-  title     = {Cross-domain few-shot object detection via enhanced open-set object detector},
-  author    = {Fu, Yuqian and Wang, Yu and Pan, Yixuan and Huai, Lian and Qiu, Xingyu
-               and Shangguan, Zeyu and Liu, Tong and Fu, Yanwei and Van Gool, Luc and Jiang, Xingqun},
-  booktitle = {European Conference on Computer Vision},
-  pages     = {247--264}, year = {2025}, organization = {Springer}
-}
-
-@inproceedings{xiong2023cdfsod,
-  title     = {CD-FSOD: A Benchmark for Cross-Domain Few-Shot Object Detection},
-  author    = {Xiong, Wuti and Liu, Li},
-  booktitle = {ICASSP}, year = {2023}
-}
-
-@inproceedings{li2021grounded,
-  title     = {Grounded Language-Image Pre-training},
-  author    = {Li, Liunian Harold and Zhang, Pengchuan and Zhang, Haotian and Yang, Jianwei
-               and Li, Chunyuan and Zhong, Yiwu and Wang, Lijuan and Yuan, Lu and Zhang, Lei
-               and Hwang, Jenq-Neng and Chang, Kai-Wei and Gao, Jianfeng},
-  booktitle = {CVPR}, year = {2022}
-}
-
-@article{li2022elevater,
-  title   = {ELEVATER: A Benchmark and Toolkit for Evaluating Language-Augmented Visual Models},
-  author  = {Li, Chunyuan and Liu, Haotian and Li, Liunian Harold and Zhang, Pengchuan
-             and Aneja, Jyoti and Yang, Jianwei and Jin, Ping and Lee, Yong Jae
-             and Hu, Houdong and Liu, Zicheng and others},
-  journal = {arXiv preprint arXiv:2204.08790}, year = {2022}
-}
-```
-
----
-
-## 4. Download integrity
+## 3. Download integrity
 
 ### Archives
 
 | file | bytes | SHA-256 |
 |---|---|---|
-| `CDIOD_annotations.tar.gz` | 9,834,340 | `3d4f62cd2d1dbc0f5e255011920431be29d1faa2cf0a7e87aa7783027c8d33d2` |
+| `CDIOD_annotations.tar.gz` | 11,118,532 | `9168e66c52f9849a451f10ffdaf6b1df41a9fa024fd3583299f58733b3b00c26` |
 | `CDIOD_images.tar.gz` | 11,545,600,485 | `048e741613225d8356f42b9926b34946eaae0ffc595f0df0df5aa4ff3c8851ee` |
 
-### Supplementary file — required for the 5-phase setting
-
-`CDIOD_annotations.tar.gz` contains 17 annotation files and **omits one**:
-`RUOD/train/annotations_without_background.json`. The 5-phase (0-10) configuration trains its
-RUOD phase on all ten RUOD classes at once and therefore loads this file, so 5-phase runs fail
-without it. The 10-phase (0-5) configuration is unaffected. It is now published alongside the
-archives at the same download links; place it in `data/CDIOD/RUOD/train/`.
-
-| file | bytes | images | annotations | categories | SHA-256 |
-|---|---|---|---|---|---|
-| `RUOD/train/annotations_without_background.json` | 16,997,328 | 9,800 | 51,935 | 10 | `ec124c587382c4e4c89d28490ec3a145497b27ac2ad2ffa0afbf263bdc406310` |
+The first upload of `CDIOD_annotations.tar.gz` (9,834,340 bytes, SHA-256
+`3d4f62cd2d1dbc0f5e255011920431be29d1faa2cf0a7e87aa7783027c8d33d2`) contained 17 annotation
+files and omitted `RUOD/train/annotations_without_background.json`, which the 5-phase (0-10)
+configuration loads for its RUOD phase; 5-phase runs failed without it, while 10-phase runs were
+unaffected. The current archive adds that file and is otherwise identical — the other 17 files
+are byte-for-byte unchanged. If you downloaded the earlier archive, re-download.
 
 ### Annotation files inside `CDIOD_annotations.tar.gz` (prefix `data/CDIOD/`)
+
 
 | path | bytes | images | annotations | categories | SHA-256 |
 |---|---|---|---|---|---|
@@ -203,15 +127,17 @@ archives at the same download links; place it in `data/CDIOD/RUOD/train/`.
 | `PascalVOC/valid/….json` | 1,593,682 | 3,422 | 7,835 | 20 | `31254ead511b0a6beb5199e5b78990991ca3beca6bf0ccbfc72328c95373cc0b` |
 | `RUOD/train/…_Task2-1.json` | 4,358,222 | 5,189 | 32,984 | 5 | `86653fb691e484e3ff425bb81d342117d814dbaaed4efb1eda23b04aebc003c4` |
 | `RUOD/train/…_Task2-2.json` | 2,768,260 | 6,376 | 18,951 | 5 | `38905b95c7ceb8127a15afe76cf8124d180a4528db09944c5f98b48873f9cc18` |
+| `RUOD/train/….json` | 16,997,328 | 9,800 | 51,935 | 10 | `ec124c587382c4e4c89d28490ec3a145497b27ac2ad2ffa0afbf263bdc406310` |
 | `RUOD/valid/….json` | 7,487,412 | 4,200 | 22,969 | 10 | `b5dee6270231629b2c32fb21996fb325923257ba8caade8134b9d31a042b22fe` |
 
-479,465 annotations across the 17 files. `…` abbreviates
-`annotations_without_background`.
+`…` abbreviates `annotations_without_background`. The 14 phase files plus the three `valid`
+files hold 479,465 annotations; `RUOD/train/….json` is the unpartitioned RUOD training set used
+by the 5-phase setting, so its 51,935 annotations are the same ones as in `RUOD` Task2-1 + 2-2.
 
 ### Source files we consumed
 
-CDFSOD-benchmark publishes no checksums, so these are ours. If your copy hashes to these
-values, the DIOR component you have is the same one this release was built from.
+For the record, the DIOR COCO files we obtained from CDFSOD-benchmark hash as follows.
+CDFSOD-benchmark publishes no checksums of its own.
 
 | source file | bytes | SHA-256 |
 |---|---|---|
@@ -220,18 +146,17 @@ values, the DIOR component you have is the same one this release was built from.
 
 ---
 
-## 5. Known issues
+## 4. Known issues
 
-All of the following are properties of the upstream datasets, inherited by CDIOD. We keep the
-released files byte-identical to their sources rather than silently correcting them, because
-that fidelity is what makes the splits reproducible. They are documented here so that users can
-account for them.
+These are properties of the upstream datasets, inherited by CDIOD. We keep the released files
+byte-identical to their sources rather than silently correcting them, because that fidelity is
+what makes the splits reproducible.
 
-### 5.1 Byte-identical duplicate images
+### 4.1 Byte-identical duplicate images
 
-DIOR and RUOD both contain images that are byte-identical to one another while carrying
-different file names and different `image_id`s. Counting duplicate groups among the images
-referenced by the released annotation files:
+DIOR and RUOD contain images that are byte-identical to one another under different file names
+and different `image_id`s. Duplicate groups among the images referenced by the released
+annotation files:
 
 | dataset | total groups | spanning train & valid | inside train only | inside valid only |
 |---|---|---|---|---|
@@ -240,52 +165,32 @@ referenced by the released annotation files:
 | Pascal VOC | 0 | 0 | 0 | 0 |
 | **total** | **797** | **334** | **394** | **69** |
 
-797 groups comprise 1,725 files, i.e. 928 redundant copies.
-
 **334 groups place a byte-identical image in both the training and the validation split.** This
-is not intentional and is not part of the CDIOD protocol. It is inherited: most of the
-duplication does not cross the split boundary at all (which a partition cannot create), and the
-split membership is upstream — our RUOD annotation files are byte-identical to the official
-release, and our DIOR train/valid image sets are exactly those of CDFSOD-benchmark's
-`train.json` / `test.json`, whose file-name intersection is 0.
+is not part of the CDIOD protocol; the split membership is the upstream one (the RUOD annotation
+files are byte-identical to the official release, and the DIOR train/valid image sets are those
+of CDFSOD-benchmark's `train.json` / `test.json`). We do not de-duplicate, since that would
+deviate from those splits and our reported numbers are measured on the splits as released. The
+duplicate group lists (keyed by SHA-256) are available on request.
 
-We do not de-duplicate the release, because that would deviate from RUOD's official split and
-from the CD-FSOD split, and the numbers in our paper are measured on the splits as released. If
-you need to account for the overlap, the duplicate group lists (keyed by SHA-256) are available
-on request.
+### 4.2 Two annotations outside their declared image rectangle
 
-### 5.2 Two annotations outside their declared image rectangle
+Two out of 479,465, both present unchanged in the upstream sources.
 
-Two annotations out of 479,465. Both are present unchanged in the upstream sources.
+| dataset | ann `id` | image | class | declared W×H | bbox (xywh) |
+|---|---|---|---|---|---|
+| DIOR | 5895 | `01072.jpg` | `harbor` | 800×800 | `[-1, 134, 184, 216]` |
+| RUOD | 15514 | `008431.jpg` | `cuttlefish` | 1024×683 | `[0, 712, 587, 311]` |
 
-**DIOR — annotation `id` 5895, `01072.jpg`, class `harbor`, `bbox = [-1, 134, 184, 216]` on an
-800×800 image.** The left edge is one pixel outside the image. This annotation is present with
-identical `id`, `image_id` and `bbox` in CDFSOD-benchmark's `train.json`, where it is the only
-out-of-bounds annotation. It appears in two released files (`Task2-2` for the 5-phase split and
-`Task4-3` for the 10-phase split) because it is one annotation reachable from both splits.
-MMDetection retains it (`inter_w = 183`, `inter_h = 216`) and `Resize`, whose
-`clip_object_border` defaults to `True`, then clips `x` from −1 to 0.
+The DIOR box is one pixel left of the image edge; MMDetection's `Resize` clips it
+(`clip_object_border=True`). The RUOD case is an EXIF orientation inconsistency rather than an
+out-of-image box: the stored JPEG is 683×1024 with `EXIF Orientation = 6`, so the declared
+`width`/`height` is the post-rotation size while the box is in the as-stored frame, where it fits
+(`587 ≤ 683`, `1023 ≤ 1024`). MMDetection validates against the declared size and drops this
+annotation at load time.
 
-**RUOD — annotation `id` 15514, `008431.jpg`, class `cuttlefish`, `bbox = [0, 712, 587, 311]`,
-declared `width: 1024, height: 683`.** This one is an EXIF orientation inconsistency, not a box
-outside the image. The stored JPEG is **683×1024** and carries `EXIF Orientation = 6`; applying
-the orientation yields 1024×683. The COCO record declares the *post-rotation* size, while the
-box is expressed in the *as-stored* frame, where it fits exactly: `0 + 587 ≤ 683` and
-`712 + 311 = 1023 ≤ 1024`. The `width`/`height` fields and the box coordinates therefore refer
-to two different orientations of the same raster. The correct handling is **not** to apply the
-EXIF orientation: decode the raw JPEG (as OpenCV, and hence MMCV, does by default) and take the
-image size from the decoded array rather than from the declared fields. Because MMDetection
-validates against the declared size, it computes `inter_h = max(0, min(1023, 683) − 712) = 0`
-and discards this annotation at load time — 1 of 51,935 RUOD training boxes; it never reaches
-the model. The RUOD validation file contains no out-of-bounds annotations, so evaluation is
-unaffected.
+### 4.3 The 5-phase setting requires a file the first archive omitted
 
-### 5.3 The 5-phase setting needs a file that the initial archive omitted
-
-See §4. `RUOD/train/annotations_without_background.json` was missing from the first upload of
-`CDIOD_annotations.tar.gz` and is now published alongside it. If you downloaded the archive
-before this note was added, fetch that one file; nothing else changed and the archive checksums
-above are unchanged.
+Fixed; see §3.
 
 
 
