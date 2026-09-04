@@ -235,6 +235,8 @@ If you find this work useful in your research, please consider citing:
 - [MMDetection](https://github.com/open-mmlab/mmdetection)
 - [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO)
 
-CDIOD is built on the DIOR, Pascal VOC 2012 and RUOD datasets, obtained via CDFSOD-benchmark,
-ODinW-13 (GLIP / ELEVATER) and the official RUOD release respectively. Please credit the original
-authors and observe each dataset's license; DIOR is distributed under CC BY-NC 4.0.
+CDIOD is built on three existing datasets, in the distributions we used:
+
+- DIOR — the COCO distribution from [CDFSOD-benchmark](https://github.com/lovelyqian/CDFSOD-benchmark)
+- Pascal VOC 2012 — the [Roboflow export](https://public.roboflow.com/object-detection/pascal-voc-2012) *"Pascal VOC 2012 – v1 raw"*, as the `PascalVOC` subset of ODinW-13
+- [RUOD](https://github.com/dlut-dimt/RUOD)
