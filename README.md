@@ -64,10 +64,9 @@ Download official checkpoints from [gdino-swin-t](https://download.openmmlab.com
 
 All annotations follow COCO JSON format. Each dataset subset contains an `annotations_without_background.json` file within its split directory. Organize datasets under `data/` as follows:
 
-> CDIOD is built from three existing datasets (DIOR, Pascal VOC 2012, RUOD) by partitioning
-> their existing annotations into phases. See **[DATASETS.md](DATASETS.md)** for the provenance
-> of each component, the license terms that apply to it, per-file SHA-256 checksums, and known
-> issues (duplicate images and two out-of-bounds annotations inherited from the source datasets).
+> CDIOD is built from three existing datasets (DIOR, Pascal VOC 2012, RUOD) by partitioning their
+> annotations into phases. See **[DATASETS.md](DATASETS.md)** for provenance, licenses, checksums
+> and known issues.
 
 ### Conventional IOD (coco)
 
@@ -145,7 +144,7 @@ data/ODinW13/
 
 > **Download**:
 > - **CDIOD & COCO split**: Available via [Google Drive](https://drive.google.com/drive/folders/1JdZHhIoB7REwMNiPnzVT_v0XJ-7txaaa?usp=drive_link) / [Quark](https://pan.quark.cn/s/e152a3aaf4cb). Download and place under `data/CDIOD/` and `data/coco/annotations/` respectively.
->   `CDIOD_annotations.tar.gz` was re-uploaded to add `RUOD/train/annotations_without_background.json`, which the 5-phase setting requires; if you downloaded it before, re-download. Checksums in [DATASETS.md §3](DATASETS.md).
+>   `CDIOD_annotations.tar.gz` was re-uploaded to add `RUOD/train/annotations_without_background.json`, which the 5-phase setting requires; if you downloaded it before, re-download. Checksums: [DATASETS.md](DATASETS.md).
 > - **ODinW13**: Follow the dataset preparation in [IVLOD](https://github.com/JarintotionDin/ZiRaGroundingDINO).
 >
 > Create symlinks to the actual data locations if needed, e.g., `ln -s /path/to/your/CDIOD data/CDIOD`.
@@ -237,11 +236,6 @@ If you find this work useful in your research, please consider citing:
 - [MMDetection](https://github.com/open-mmlab/mmdetection)
 - [GroundingDINO](https://github.com/IDEA-Research/GroundingDINO)
 
-CDIOD is built on the DIOR, Pascal VOC 2012 and RUOD datasets, obtained via
-[CDFSOD-benchmark](https://github.com/lovelyqian/CDFSOD-benchmark), Roboflow/ODinW-13
-(GLIP / ELEVATER) and the MMDetection/LQIT RUOD preparation respectively. Please credit the
-original authors and observe each dataset's license — see [DATASETS.md](DATASETS.md).
-
-Code in this repository is Apache-2.0 (inherited from MMDetection). The CDIOD phase annotation
-files and split scripts are released under CC BY-NC 4.0; the images and original annotations
-remain under their original licensors' terms.
+CDIOD is built on the DIOR, Pascal VOC 2012 and RUOD datasets. Please credit the original authors
+and observe each dataset's license — see [DATASETS.md](DATASETS.md), which also records the
+intermediate sources we obtained the data from and the license terms of each layer.

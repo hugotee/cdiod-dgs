@@ -1,46 +1,25 @@
 # Datasets, licenses and known issues
 
 CDIOD is not a new collection of images. It is a cross-domain incremental-learning *protocol*
-built on top of three existing object-detection datasets — **DIOR**, **Pascal VOC 2012** and
-**RUOD** — by partitioning each dataset's existing annotations into phases with disjoint
-category sets. We did not collect images and we did not create or edit any bounding box.
+built on three existing object-detection datasets — **DIOR**, **Pascal VOC 2012** and **RUOD** —
+by partitioning their existing annotations into phases with disjoint category sets. We collected
+no images and we created or edited no bounding box.
 
-This document records, for each component: where we obtained it, what we changed, the terms
-under which its original licensor distributes it, how to verify your download, and the issues
-we are aware of. If you are auditing this release, this file plus the checksums in §4 should
-be enough to do so without contacting us.
-
----
-
-## 1. Components and provenance
+## 1. Provenance
 
 | component | the version we used | original dataset | our changes |
 |---|---|---|---|
-| **DIOR** | the COCO JSON distributed by [CDFSOD-benchmark](https://github.com/lovelyqian/CDFSOD-benchmark) (Fu et al., ECCV 2024) — `train.json` (18,463 images / 152,602 boxes) and `test.json` (5,000 / 28,810), 20 classes | Li, Wan, Cheng, Meng, Han, *Object detection in optical remote sensing images: A survey and a new benchmark*, ISPRS JPRS 159:296–307, 2020 | none to images or annotations. `train.json` partitioned by category into phase files; `test.json` used unchanged as the validation split |
-| **Pascal VOC** | the Roboflow export *"Pascal VOC 2012 – v1 raw"* (exported 2021-06-17), obtained as the `PascalVOC` subset of **ODinW-13** (GLIP / ELEVATER), following the ODinW-13 preparation in [IVLOD / ZiRa](https://github.com/JarintotionDin/ZiRaGroundingDINO) — 13,690 train / 3,422 valid, 20 classes | Everingham, Van Gool, Williams, Winn, Zisserman, *The PASCAL Visual Object Classes (VOC) Challenge*, IJCV 88(2):303–338, 2010 (VOC **2012**) | removed the Roboflow dummy background category (`id: 0`, name `VOC`) — this is what `without_background` in the filenames refers to; no annotation was attached to it. Partitioned by category |
-| **RUOD** | the original COCO annotations from the official release (`RUOD_ANN/instances_train.json`, `RUOD_ANN/instances_test.json`), per the [MMDetection](https://github.com/open-mmlab/mmdetection/blob/main/configs/mm_grounding_dino/README.md) / [LQIT](https://github.com/BIGWangYuDong/lqit/tree/main/configs/detection/ruod_dataset) preparation — official split 9,800 train / 4,200 test, 10 classes | Fu, Liu, Fan, Chen, Fu, Yuan, Zhu, Luo, *Rethinking general underwater object detection: Datasets, challenges, and solutions*, Neurocomputing 517:243–256, 2023 | none. Partitioned by category |
-
-Two points worth stating explicitly:
-
-- **The DIOR component was taken from CDFSOD-benchmark, already in COCO form.** We never handled
-  DIOR's original XML annotations; the XML→COCO conversion happened entirely upstream of this
-  work.
-- **The DIOR split is not DIOR's official split.** CDFSOD-benchmark's train 18,463 / test 5,000
-  (which together cover all 23,463 DIOR images) is inherited from Xiong & Liu, *CD-FSOD: A
-  benchmark for cross-domain few-shot object detection*, ICASSP 2023 — not from DIOR's official
-  trainval 11,725 / test 11,738.
+| **DIOR** | the COCO JSON distributed by [CDFSOD-benchmark](https://github.com/lovelyqian/CDFSOD-benchmark): `train.json` (18,463 images / 152,602 boxes) and `test.json` (5,000 / 28,810), 20 classes. This is not DIOR's official trainval 11,725 / test 11,738 split, and the XML→COCO conversion is upstream of us — we never handled DIOR's original XML | Li, Wan, Cheng, Meng, Han, ISPRS JPRS 159:296–307, 2020 | `train.json` partitioned by category into phase files; `test.json` used unchanged as the validation split |
+| **Pascal VOC** | the Roboflow export *"Pascal VOC 2012 – v1 raw"* (exported 2021-06-17), obtained as the `PascalVOC` subset of **ODinW-13** (GLIP / ELEVATER) following the preparation in [IVLOD / ZiRa](https://github.com/JarintotionDin/ZiRaGroundingDINO) — 13,690 train / 3,422 valid, 20 classes | Everingham, Van Gool, Williams, Winn, Zisserman, IJCV 88(2):303–338, 2010 (VOC **2012**) | removed the Roboflow dummy background category (`id: 0`, name `VOC`), which had no annotations attached — this is what `without_background` in the filenames refers to; partitioned by category |
+| **RUOD** | the original COCO annotations from the official release, `RUOD_ANN/instances_train.json` and `instances_test.json` (official split 9,800 train / 4,200 test, 10 classes), per the [MMDetection](https://github.com/open-mmlab/mmdetection/blob/main/configs/mm_grounding_dino/README.md) / [LQIT](https://github.com/BIGWangYuDong/lqit/tree/main/configs/detection/ruod_dataset) preparation | Fu, Liu, Fan, Chen, Fu, Yuan, Zhu, Luo, Neurocomputing 517:243–256, 2023 | partitioned by category |
 
 The phase files are exact partitions of the upstream annotations, with no annotation `id`
 occurring in two phases of the same dataset and disjoint category sets per phase:
+DIOR Task2-\* = Task4-\* = 152,602 = `train.json`; Pascal VOC Task2-\* = Task4-\* = 31,356 = the
+Roboflow train file; RUOD Task2-1 + Task2-2 = 51,935 = `instances_train.json`.
 
-| dataset | sum over phase files | equals upstream |
-|---|---|---|
-| DIOR | Task2-\* = Task4-\* = 152,602 | `train.json` = 152,602 |
-| Pascal VOC | Task2-\* = Task4-\* = 31,356 | Roboflow train file = 31,356 |
-| RUOD | Task2-1 + Task2-2 = 51,935 | `instances_train.json` = 51,935 |
-
-For DIOR and RUOD, the files we redistribute are **byte-identical** to the upstream files and
-differ only in name:
+Three of the files we redistribute are **byte-identical** to their upstream source and differ
+only in name:
 
 | our file | identical to |
 |---|---|
@@ -48,51 +27,34 @@ differ only in name:
 | `RUOD/train/annotations_without_background.json` | RUOD `RUOD_ANN/instances_train.json` |
 | `RUOD/valid/annotations_without_background.json` | RUOD `RUOD_ANN/instances_test.json` |
 
----
-
 ## 2. Licenses
 
-**Three layers, with different terms. Please read this before assuming the repository
-`LICENSE` covers the data.**
+Three layers with different terms. **The repository `LICENSE` does not cover the data.**
 
 | layer | terms |
 |---|---|
-| Code in this repository | **Apache-2.0**, inherited from [MMDetection](https://github.com/open-mmlab/mmdetection) (see `LICENSE`) |
-| The CDIOD phase annotation files and the scripts that produce them — i.e. the part that is ours | **CC BY-NC 4.0** |
-| The images and the original annotations | governed by each original licensor's terms, below. We hold no rights in them |
-
-We chose CC BY-NC 4.0 for our layer deliberately rather than for convenience: the DIOR
-annotations our phase files are derived from are themselves CC BY-NC 4.0, so a more permissive
-license on our layer would misstate what a downstream user is actually permitted to do.
-
-**We cannot grant permission to use the images or the original annotations.** We do not hold
-those rights. Each component's terms, as stated by its own licensor:
+| Code in this repository | **Apache-2.0**, inherited from [MMDetection](https://github.com/open-mmlab/mmdetection) |
+| The CDIOD phase annotation files and the scripts that produce them | **CC BY-NC 4.0**, matching the DIOR annotations they derive from |
+| The images and the original annotations | each original licensor's terms, below. We hold no rights in them and cannot grant permission to use them |
 
 - **DIOR — CC BY-NC 4.0, plus citation.** The authors' project page states the dataset is
-  "freely available under the CC BY-NC 4.0 license agreement" and asks that the ISPRS 2020
-  paper be cited. Non-commercial research use is within those terms; commercial use is not.
-  CDFSOD-benchmark, which redistributed the COCO conversion, is Apache-2.0 (code) and asks only
-  that the datasets be "cite[d] properly".
+  "freely available under the CC BY-NC 4.0 license agreement". Non-commercial research use is
+  within those terms; commercial use is not. CDFSOD-benchmark, which redistributed the COCO
+  conversion, is Apache-2.0 (code) and asks that the datasets be "cite[d] properly".
 - **Pascal VOC — CC BY 4.0 as declared by the export; the original terms are narrower.** The
-  Roboflow export declares CC BY 4.0 in `README.dataset.txt` and in the COCO `licenses` block,
-  but that is the redistributor's declaration, not the VOC organizers'. The official VOC2012
-  "Database Rights" section states only: *"The VOC2012 data includes images obtained from the
-  'flickr' website. Use of these images must respect the corresponding terms of use… Any queries
-  about the use or ownership of the data should be addressed to the organizers."* The underlying
-  image copyrights rest with the individual Flickr users. ODinW/ELEVATER adds: *"Please follow
-  the original license of each dataset and keep this benchmark for academic purposes."*
-- **RUOD — no written license accompanies the data.** The official repository `dlut-dimt/RUOD`
-  contains an Apache-2.0 `LICENSE`, but that repository holds only three files and no data, and
-  nothing states that the license covers the dataset. The mirror that actually hosts the archive
-  (`xiaoDetection/RUOD`) has no license file. Neither the official READMEs nor the MMDetection /
-  LQIT documentation states any usage restriction. This is an *absence* of a statement rather
-  than a permissive one, and we cannot confirm terms on the authors' behalf. The only explicit
-  requirement anywhere is citing the Neurocomputing 2023 paper. If you need a documented license
-  for RUOD, please contact Fu et al. directly.
+  Roboflow export declares CC BY 4.0, but that is the redistributor's declaration, not the VOC
+  organizers'. The official VOC2012 "Database Rights" section states only that the data includes
+  Flickr images whose terms of use must be respected, and that queries about use or ownership be
+  addressed to the organizers. ODinW/ELEVATER adds: *"Please follow the original license of each
+  dataset and keep this benchmark for academic purposes."*
+- **RUOD — no written license accompanies the data.** `dlut-dimt/RUOD` carries an Apache-2.0
+  `LICENSE`, but that repository holds only three files and no data; the mirror that hosts the
+  archive (`xiaoDetection/RUOD`) has no license file; and neither the official READMEs nor the
+  MMDetection / LQIT documentation states any usage restriction. This is an *absence* of a
+  statement rather than a permissive one, and we cannot confirm terms on the authors' behalf. If
+  you need a documented license for RUOD, please contact Fu et al. directly.
 
 ## 3. Download integrity
-
-### Archives
 
 | file | bytes | SHA-256 |
 |---|---|---|
@@ -100,14 +62,13 @@ those rights. Each component's terms, as stated by its own licensor:
 | `CDIOD_images.tar.gz` | 11,545,600,485 | `048e741613225d8356f42b9926b34946eaae0ffc595f0df0df5aa4ff3c8851ee` |
 
 The first upload of `CDIOD_annotations.tar.gz` (9,834,340 bytes, SHA-256
-`3d4f62cd2d1dbc0f5e255011920431be29d1faa2cf0a7e87aa7783027c8d33d2`) contained 17 annotation
-files and omitted `RUOD/train/annotations_without_background.json`, which the 5-phase (0-10)
-configuration loads for its RUOD phase; 5-phase runs failed without it, while 10-phase runs were
-unaffected. The current archive adds that file and is otherwise identical — the other 17 files
-are byte-for-byte unchanged. If you downloaded the earlier archive, re-download.
+`3d4f62cd2d1dbc0f5e255011920431be29d1faa2cf0a7e87aa7783027c8d33d2`) held 17 files and omitted
+`RUOD/train/annotations_without_background.json`, which the 5-phase configuration loads; 5-phase
+runs failed without it, 10-phase runs were unaffected. The current archive adds that file and is
+otherwise identical. **If you downloaded the earlier archive, re-download.**
 
-### Annotation files inside `CDIOD_annotations.tar.gz` (prefix `data/CDIOD/`)
-
+Annotation files inside the archive, under the prefix `data/CDIOD/`. `…` abbreviates
+`annotations_without_background`.
 
 | path | bytes | images | annotations | categories | SHA-256 |
 |---|---|---|---|---|---|
@@ -130,32 +91,22 @@ are byte-for-byte unchanged. If you downloaded the earlier archive, re-download.
 | `RUOD/train/….json` | 16,997,328 | 9,800 | 51,935 | 10 | `ec124c587382c4e4c89d28490ec3a145497b27ac2ad2ffa0afbf263bdc406310` |
 | `RUOD/valid/….json` | 7,487,412 | 4,200 | 22,969 | 10 | `b5dee6270231629b2c32fb21996fb325923257ba8caade8134b9d31a042b22fe` |
 
-`…` abbreviates `annotations_without_background`. The 14 phase files plus the three `valid`
-files hold 479,465 annotations; `RUOD/train/….json` is the unpartitioned RUOD training set used
-by the 5-phase setting, so its 51,935 annotations are the same ones as in `RUOD` Task2-1 + 2-2.
+`RUOD/train/….json` is the unpartitioned RUOD training set used by the 5-phase setting, so its
+51,935 annotations are the same ones as in RUOD Task2-1 + 2-2.
 
-### Source files we consumed
-
-For the record, the DIOR COCO files we obtained from CDFSOD-benchmark hash as follows.
-CDFSOD-benchmark publishes no checksums of its own.
-
-| source file | bytes | SHA-256 |
-|---|---|---|
-| `DIOR/annotations/train.json` | 24,401,269 | `888ee4588efb824c8ddcce87f9f04d6c47bf9ddae86f0fa00c6b9b088840335b` |
-| `DIOR/annotations/test.json` | 4,697,409 | `6f446c7e24b8e4b92f9dc71127ca80ca0363a0037a428acd81de31aff500e28f` |
-
----
+For the record, the DIOR COCO files we consumed from CDFSOD-benchmark, which publishes no
+checksums of its own: `train.json` 24,401,269 bytes,
+`888ee4588efb824c8ddcce87f9f04d6c47bf9ddae86f0fa00c6b9b088840335b`; `test.json` 4,697,409 bytes,
+`6f446c7e24b8e4b92f9dc71127ca80ca0363a0037a428acd81de31aff500e28f`.
 
 ## 4. Known issues
 
-These are properties of the upstream datasets, inherited by CDIOD. We keep the released files
+Both are properties of the upstream datasets, inherited by CDIOD. We keep the released files
 byte-identical to their sources rather than silently correcting them, because that fidelity is
 what makes the splits reproducible.
 
-### 4.1 Byte-identical duplicate images
-
-DIOR and RUOD contain images that are byte-identical to one another under different file names
-and different `image_id`s. Duplicate groups among the images referenced by the released
+**Byte-identical duplicate images.** DIOR and RUOD contain images identical to one another under
+different file names and different `image_id`s. Among the images referenced by the released
 annotation files:
 
 | dataset | total groups | spanning train & valid | inside train only | inside valid only |
@@ -165,16 +116,14 @@ annotation files:
 | Pascal VOC | 0 | 0 | 0 | 0 |
 | **total** | **797** | **334** | **394** | **69** |
 
-**334 groups place a byte-identical image in both the training and the validation split.** This
-is not part of the CDIOD protocol; the split membership is the upstream one (the RUOD annotation
-files are byte-identical to the official release, and the DIOR train/valid image sets are those
-of CDFSOD-benchmark's `train.json` / `test.json`). We do not de-duplicate, since that would
-deviate from those splits and our reported numbers are measured on the splits as released. The
-duplicate group lists (keyed by SHA-256) are available on request.
+334 groups place a byte-identical image in both splits. This is not part of the CDIOD protocol:
+the split membership is the upstream one, and 463 of the 797 groups lie entirely inside a single
+split, which a category partition cannot create. We do not de-duplicate, since that would deviate
+from the upstream splits our reported numbers are measured on. The group lists (keyed by SHA-256)
+are available on request.
 
-### 4.2 Two annotations outside their declared image rectangle
-
-Two out of 479,465, both present unchanged in the upstream sources.
+**Two annotations outside their declared image rectangle**, out of 479,465, both present unchanged
+upstream:
 
 | dataset | ann `id` | image | class | declared W×H | bbox (xywh) |
 |---|---|---|---|---|---|
@@ -187,10 +136,5 @@ out-of-image box: the stored JPEG is 683×1024 with `EXIF Orientation = 6`, so t
 `width`/`height` is the post-rotation size while the box is in the as-stored frame, where it fits
 (`587 ≤ 683`, `1023 ≤ 1024`). MMDetection validates against the declared size and drops this
 annotation at load time.
-
-### 4.3 The 5-phase setting requires a file the first archive omitted
-
-Fixed; see §3.
-
 
 
