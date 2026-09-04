@@ -34,8 +34,8 @@ Three layers with different terms. **The repository `LICENSE` does not cover the
 | layer | terms |
 |---|---|
 | Code in this repository | **Apache-2.0**, inherited from [MMDetection](https://github.com/open-mmlab/mmdetection) |
-| The CDIOD phase annotation files and the scripts that produce them | **CC BY-NC 4.0**, matching the DIOR annotations they derive from |
-| The images and the original annotations | each original licensor's terms, below. We hold no rights in them and cannot grant permission to use them |
+| The CDIOD phase annotation files, the splits and the scripts that produce them | provided for academic, non-commercial use (**CC BY-NC 4.0**) |
+| The images and the original annotations | each original licensor's terms, below. We hold no rights in them, cannot grant permission to use them, and cannot speak for their licensors |
 
 - **DIOR — CC BY-NC 4.0, plus citation.** The authors' project page states the dataset is
   "freely available under the CC BY-NC 4.0 license agreement". Non-commercial research use is
@@ -52,6 +52,9 @@ Three layers with different terms. **The repository `LICENSE` does not cover the
   anywhere either. This is an *absence* of a statement rather than a permissive one, and we cannot
   confirm terms on the authors' behalf. If you need a documented license for RUOD, please contact
   Fu et al. directly.
+
+Please follow the terms above, and address any question about the underlying images or original
+annotations to their original authors rather than to us.
 
 ## 3. Download integrity
 

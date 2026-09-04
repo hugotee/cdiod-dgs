@@ -238,4 +238,4 @@ If you find this work useful in your research, please consider citing:
 
 CDIOD is built on the DIOR, Pascal VOC 2012 and RUOD datasets. Please credit the original authors
 and observe each dataset's license — see [DATASETS.md](DATASETS.md), which also records the
-intermediate sources we obtained the data from and the license terms of each layer.
+sources we obtained the data from and the terms that apply to each layer.
