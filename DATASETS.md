@@ -9,9 +9,9 @@ no images and we created or edited no bounding box.
 
 | component | the version we used | original dataset | our changes |
 |---|---|---|---|
-| **DIOR** | the COCO JSON distributed by [CDFSOD-benchmark](https://github.com/lovelyqian/CDFSOD-benchmark): `train.json` (18,463 images / 152,602 boxes) and `test.json` (5,000 / 28,810), 20 classes. This is not DIOR's official trainval 11,725 / test 11,738 split, and the XML→COCO conversion is upstream of us — we never handled DIOR's original XML | Li, Wan, Cheng, Meng, Han, ISPRS JPRS 159:296–307, 2020 | `train.json` partitioned by category into phase files; `test.json` used unchanged as the validation split |
-| **Pascal VOC** | the Roboflow export *"Pascal VOC 2012 – v1 raw"* (exported 2021-06-17), obtained as the `PascalVOC` subset of **ODinW-13** (GLIP / ELEVATER) following the preparation in [IVLOD / ZiRa](https://github.com/JarintotionDin/ZiRaGroundingDINO) — 13,690 train / 3,422 valid, 20 classes | Everingham, Van Gool, Williams, Winn, Zisserman, IJCV 88(2):303–338, 2010 (VOC **2012**) | removed the Roboflow dummy background category (`id: 0`, name `VOC`), which had no annotations attached — this is what `without_background` in the filenames refers to; partitioned by category |
-| **RUOD** | the original COCO annotations from the official release, `RUOD_ANN/instances_train.json` and `instances_test.json` (official split 9,800 train / 4,200 test, 10 classes), per the [MMDetection](https://github.com/open-mmlab/mmdetection/blob/main/configs/mm_grounding_dino/README.md) / [LQIT](https://github.com/BIGWangYuDong/lqit/tree/main/configs/detection/ruod_dataset) preparation | Fu, Liu, Fan, Chen, Fu, Yuan, Zhu, Luo, Neurocomputing 517:243–256, 2023 | partitioned by category |
+| **DIOR** | the COCO JSON distributed by [CDFSOD-benchmark](https://github.com/lovelyqian/CDFSOD-benchmark): `train.json` (18,463 images / 152,602 boxes) and `test.json` (5,000 / 28,810), 20 classes. The XML→COCO conversion is upstream of us — we never handled DIOR's original XML | Li, Wan, Cheng, Meng, Han, ISPRS JPRS 159:296–307, 2020 | `train.json` partitioned by category into phase files; `test.json` used unchanged as the validation split |
+| **Pascal VOC** | the Roboflow export *"Pascal VOC 2012 – v1 raw"* (exported 2021-06-17), obtained as the `PascalVOC` subset of **ODinW-13** (GLIP / ELEVATER) — 13,690 train / 3,422 valid, 20 classes | Everingham, Van Gool, Williams, Winn, Zisserman, IJCV 88(2):303–338, 2010 (VOC **2012**) | removed the Roboflow dummy background category (`id: 0`, name `VOC`), which had no annotations attached — this is what `without_background` in the filenames refers to; partitioned by category |
+| **RUOD** | the official COCO annotations from [dlut-dimt/RUOD](https://github.com/dlut-dimt/RUOD): `RUOD_ANN/instances_train.json` and `instances_test.json`, official split 9,800 train / 4,200 test, 10 classes | Fu, Liu, Fan, Chen, Fu, Yuan, Zhu, Luo, Neurocomputing 517:243–256, 2023 | partitioned by category |
 
 The phase files are exact partitions of the upstream annotations, with no annotation `id`
 occurring in two phases of the same dataset and disjoint category sets per phase:
@@ -48,11 +48,10 @@ Three layers with different terms. **The repository `LICENSE` does not cover the
   addressed to the organizers. ODinW/ELEVATER adds: *"Please follow the original license of each
   dataset and keep this benchmark for academic purposes."*
 - **RUOD — no written license accompanies the data.** `dlut-dimt/RUOD` carries an Apache-2.0
-  `LICENSE`, but that repository holds only three files and no data; the mirror that hosts the
-  archive (`xiaoDetection/RUOD`) has no license file; and neither the official READMEs nor the
-  MMDetection / LQIT documentation states any usage restriction. This is an *absence* of a
-  statement rather than a permissive one, and we cannot confirm terms on the authors' behalf. If
-  you need a documented license for RUOD, please contact Fu et al. directly.
+  `LICENSE`, but nothing states that it covers the dataset, and no usage restriction is stated
+  anywhere either. This is an *absence* of a statement rather than a permissive one, and we cannot
+  confirm terms on the authors' behalf. If you need a documented license for RUOD, please contact
+  Fu et al. directly.
 
 ## 3. Download integrity
 
