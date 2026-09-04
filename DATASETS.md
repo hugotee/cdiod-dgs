@@ -105,22 +105,24 @@ Both are properties of the upstream datasets, inherited by CDIOD. We keep the re
 byte-identical to their sources rather than silently correcting them, because that fidelity is
 what makes the splits reproducible.
 
-**Byte-identical duplicate images.** DIOR and RUOD contain images identical to one another under
-different file names and different `image_id`s. Among the images referenced by the released
-annotation files:
+**Byte-identical duplicate images across train and valid.** DIOR and RUOD contain images that are
+identical to one another under different file names and different `image_id`s, and some of these
+pairs straddle the train/valid boundary:
 
-| dataset | total groups | spanning train & valid | inside train only | inside valid only |
-|---|---|---|---|---|
-| DIOR | 41 | 12 | 28 | 1 |
-| RUOD | 756 | 322 | 366 | 68 |
-| Pascal VOC | 0 | 0 | 0 | 0 |
-| **total** | **797** | **334** | **394** | **69** |
+| dataset | groups with an image in both splits | train files | valid files |
+|---|---|---|---|
+| DIOR | 12 | 12 | 12 |
+| RUOD | 322 | 376 | 349 |
+| Pascal VOC | 0 | 0 | 0 |
+| **total** | **334** | **388** | **361** |
 
-334 groups place a byte-identical image in both splits. This is not part of the CDIOD protocol:
-the split membership is the upstream one, and 463 of the 797 groups lie entirely inside a single
-split, which a category partition cannot create. We do not de-duplicate, since that would deviate
-from the upstream splits our reported numbers are measured on. The group lists (keyed by SHA-256)
-are available on request.
+This is not introduced by the CDIOD partition: the split membership is the upstream one. Our RUOD
+train and valid annotation files are byte-identical to the official `instances_train.json` /
+`instances_test.json`, and our DIOR train/valid image sets are exactly those of CDFSOD-benchmark's
+`train.json` / `test.json`, so all 334 groups have the same assignment in the source datasets. We
+do not de-duplicate, since that would deviate from the upstream splits our reported numbers are
+measured on. The group list (keyed by SHA-256) is available on request. Duplicates also occur
+within a single split in both datasets.
 
 **Two annotations outside their declared image rectangle**, out of 479,465, both present unchanged
 upstream:
