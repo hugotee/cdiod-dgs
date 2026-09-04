@@ -140,3 +140,6 @@ projects/DGS/**/__pycache__/
 
 # Release upload artifacts (data packages, not tracked)
 release_upload/
+
+# Dataset provenance notes (kept local, not published)
+DATASETS.md
