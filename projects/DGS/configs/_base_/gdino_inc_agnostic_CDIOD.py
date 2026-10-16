@@ -2,7 +2,7 @@ _base_ = [
     '../../../../configs/_base_/datasets/coco_detection.py',
     '../../../../configs/_base_/schedules/schedule_1x.py', '../../../../configs/_base_/default_runtime.py',
 ]
-lang_model_name = '/home/wangxu/.cache/huggingface/hub/bert-base-uncased'
+lang_model_name = 'weights/bert-base-uncased'
 
 model = dict(
     type='GroundingDINO_inc',

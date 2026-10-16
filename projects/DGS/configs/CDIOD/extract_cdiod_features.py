@@ -1,6 +1,12 @@
 import torch
 import os
 import argparse
+import sys
+from pathlib import Path
+
+# Make project registrations available when this file is run as a script.
+sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
+
 from tqdm import tqdm
 from mmengine.config import Config
 from mmdet.registry import MODELS, DATASETS
@@ -10,7 +16,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Extract GDINO neck features for CDIOD tasks (Optimized)')
     parser.add_argument('--config', default='projects/DGS/configs/CDIOD/extract_feats.py')
     parser.add_argument('--checkpoint', default='weights/groundingdino_swint_ogc_mmdet-822d7e9d.pth')
-    parser.add_argument('--save-dir', default='visualize/CDIOD_git/')
+    parser.add_argument('--save-dir', default='visualize/CDIOD_mlvlfeat/')
     parser.add_argument('--data-root', default='data/CDIOD/')
     parser.add_argument('--split', default='train', choices=['train', 'valid'],
                         help='Dataset split to extract features from (train or valid)')
@@ -18,6 +24,8 @@ def parse_args():
                         help='Task sequence steps (5 or 10)')
     parser.add_argument('--max-samples', type=int, default=1000000,
                         help='Max samples per task')
+    parser.add_argument('--tasks', nargs='+',
+                        help='Extract only the named tasks from the selected setting')
     return parser.parse_args()
 
 def main():
@@ -47,6 +55,14 @@ def main():
             {'name': 'RUOD', 'path': 'RUOD', 'ann': f'{args.split}/annotations_without_background.json'},
         ]
 
+    if args.tasks:
+        requested = set(args.tasks)
+        available = {task['name'] for task in tasks}
+        unknown = requested - available
+        if unknown:
+            raise ValueError(f'Unknown tasks for {args.steps}-step setting: {sorted(unknown)}')
+        tasks = [task for task in tasks if task['name'] in requested]
+
     # 2. Build Model
     cfg = Config.fromfile(args.config)
     
@@ -74,7 +90,7 @@ def main():
         os.makedirs(task_save_dir, exist_ok=True)
         
         print(f"\n" + "="*40)
-        print(f"Processing Task: {task_name} (Base: {base_dataset}) [{args.split}]")
+        print(f"Processing Task: {task_name} (Base: {task['path']}) [{args.split}]")
 
         # Update dataset config using GLIP-style explicit assignment
         ds_cfg = cfg.test_dataloader.dataset.copy()

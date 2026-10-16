@@ -1,9 +1,11 @@
 #!/bin/bash
 # Unified training script with mode switching
-# Usage: ./run_training_shuffle.sh [method] [exp_name] [start_phase] [seed_id] [num_steps]
-# seed_id: 1, 2, or 3 (default: 1)
-# num_steps: 5 or 10 (default: 5)
-if [ -z "$CUDA_VISIBLE_DEVICES" ]; then
+# Usage: bash run_training_dataset_shuffle_distn.sh [method] [exp_name] [seed_id] [num_tasks] [start_phase]
+# seed_id: 0, 1, or 2 (default: 0)
+# num_tasks: 5 or 10 (default: 10)
+set -euo pipefail
+
+if [ -z "${CUDA_VISIBLE_DEVICES:-}" ]; then
     GPU_NUMS=$(nvidia-smi -L | wc -l)
     echo "CUDA_VISIBLE_DEVICES is empty, using nvidia-smi to detect GPUs: $GPU_NUMS"
 else
@@ -11,9 +13,9 @@ else
     echo "Using CUDA_VISIBLE_DEVICES to detect GPUs: $GPU_NUMS"
 fi   
 
-METHOD=${1:-adapter}      # default: adapter
-EXP_NAME=${2:-adapter_1e-3d128s1}  # exp name
-SEED_ID=${3:-0}           # seed id: 0, 1, 2, or 3 (default: 0)
+METHOD=${1:-dgs}          # default: dgs
+EXP_NAME=${2:-dgs}        # exp name
+SEED_ID=${3:-0}           # seed id: 0, 1, or 2 (default: 0)
 NUM_TASKS=${4:-10}         # number of steps: 5 or 10 (default: 10)
 START_PHASE=${5:-0}        # start step, default: 0
 
@@ -58,8 +60,16 @@ echo "  Start Phase: $START_PHASE"
 echo "=========================================="
 
 work_dirs="work_dirs/CDIOD/${EXP_NAME}_seed${SEED_ID}_${NUM_TASKS}phases"
-cfg_s1="projects/DGS/configs/CDIOD/${EXP_NAME}_stage1.py"
-cfg_s2="projects/DGS/configs/CDIOD/${EXP_NAME}_stage2.py"
+mkdir -p "$work_dirs"
+cfg_s1="projects/DGS/configs/CDIOD/${METHOD}_stage1.py"
+cfg_s2="projects/DGS/configs/CDIOD/${METHOD}_stage2.py"
+
+for config in "$cfg_s1" "$cfg_s2"; do
+    if [ ! -f "$config" ]; then
+        echo "Error: Config not found: $config" >&2
+        exit 1
+    fi
+done
 
 # Training loop with mode-specific options
 for ((i = $START_PHASE; i < ${#DATASETS[@]}; i++)); do
