@@ -63,6 +63,20 @@ python tools/dgs_diagnostics/simulate_grouping.py \
   --caps 150 200 300 --dataset-orders all
 ```
 
+An all-in-one CPU preflight includes real predictor checks on the saved
+five-task statistics and a synthetic three-Gaussian chain before the above steps:
+
+```bash
+python tools/dgs_diagnostics/run_cpu_preflight.py \
+  --repo "$PWD" \
+  --baseline-root "$PWD/work_dirs/CDIOD/repro_20261022_seed0_5phases" \
+  --output-dir "$PWD/work_dirs/dtg_diagnostics/preflight_first_run"
+```
+
+Use a fresh output directory on reruns. The status JSON records the checked-out
+commit, completed steps, and failures. This command does not contain any
+training launch or automatic GPU extraction, even if a trigger is found.
+
 These steps remain pending while the school SSH endpoint is unreachable. The
 CPU cached-statistics script has received syntax review, but has NOT yet been
 validated against the server's torch environment. Runtime predictor integration
