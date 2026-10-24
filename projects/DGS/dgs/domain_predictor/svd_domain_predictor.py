@@ -1,4 +1,5 @@
 import os
+import math
 
 import torch
 import torch.distributed as dist
@@ -61,7 +62,6 @@ class AdaptiveDomainPredictor_SVD(AdaptiveDomainPredictor_Dist):
         self.min_eig_ratio = getattr(domain_predictor_cfg, 'min_eig_ratio', 1e-3)
         self.max_group_kl = getattr(domain_predictor_cfg, 'max_group_kl', None)
         if self.max_group_kl is not None:
-            import math
             if not math.isfinite(self.max_group_kl) or self.max_group_kl <= 0:
                 raise ValueError('max_group_kl must be finite and positive, or None')
         super().__init__(

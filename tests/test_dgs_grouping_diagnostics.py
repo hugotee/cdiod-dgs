@@ -12,6 +12,31 @@ spec.loader.exec_module(module)
 
 
 class GroupingDiagnosticsTest(unittest.TestCase):
+    def test_completed_five_task_sequence_keeps_its_groups(self):
+        # Locate the repo explicitly rather than importing the DGS registry.
+        path=Path(__file__).resolve().parents[1]/'tools/dgs_diagnostics/simulate_grouping.py'
+        sim_spec=importlib.util.spec_from_file_location('simulate_grouping',path)
+        sim=importlib.util.module_from_spec(sim_spec)
+        sim_spec.loader.exec_module(sim)
+        root=Path(__file__).resolve().parents[1]
+        source=json.loads((root/'experiments/cdiod/repro_20261024/saved_statistics_summary.json').read_text())
+        tasks,matrix=source['tasks'],source['distance_matrix']
+        sim.validate_matrix(tasks,matrix)
+        for cap in [None,150,200,300]:
+            result=sim.simulate(tasks,matrix,list(range(5)),150,cap)
+            self.assertEqual(result['groups'],[0,0,1,1,2])
+
+    def test_offline_history_changes_after_diameter_rejection(self):
+        path=Path(__file__).resolve().parents[1]/'tools/dgs_diagnostics/simulate_grouping.py'
+        sim_spec=importlib.util.spec_from_file_location('simulate_grouping',path)
+        sim=importlib.util.module_from_spec(sim_spec)
+        sim_spec.loader.exec_module(sim)
+        matrix=[[0,40,20],[40,0,250],[20,250,0]]
+        baseline=sim.simulate(['A','B','C'],matrix,[0,1,2],150,None)
+        modified=sim.simulate(['A','B','C'],matrix,[0,1,2],150,150)
+        self.assertEqual(baseline['groups'],[0,0,0])
+        self.assertEqual(modified['groups'],[0,0,1])
+
     def test_disabled_limit_preserves_original_acceptance(self):
         row=module.candidate_group_record(2,{0:0,1:0},[20,250],lambda a,b:40,150)
         result=module.apply_diameter_limit(row,None)

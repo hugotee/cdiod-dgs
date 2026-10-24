@@ -39,7 +39,8 @@ def main():
     parser.add_argument('--threads',type=int,default=4)
     args=parser.parse_args()
     repo=args.repo.resolve();out=args.output_dir.resolve()
-    if out==repo/'visualize/CDIOD_mlvlfeat' or 'work_dirs/CDIOD/repro_' in str(out):
+    protected=[repo/'data',repo/'weights',repo/'visualize']
+    if any(out==p or p in out.parents for p in protected) or 'work_dirs/CDIOD/repro_' in str(out):
         raise ValueError('Use an isolated diagnostic output directory')
     out.mkdir(parents=True,exist_ok=True)
     torch.set_num_threads(args.threads)
@@ -75,13 +76,18 @@ def main():
     if missing:raise RuntimeError(f'{len(missing)} missing embeddings; see cache_coverage.json')
     # Check repeat images across task caches: input identity alone is not enough.
     duplicate_max=0.0
-    for candidates in duplicates[:64]:
+    checked=duplicates[::max(1,len(duplicates)//64)][:64]
+    for candidates in checked:
         a=torch.load(candidates[0],map_location='cpu')
         b=torch.load(candidates[1],map_location='cpu')
         delta=float((a-b).abs().max());duplicate_max=max(duplicate_max,delta)
         if not torch.allclose(a,b,rtol=1e-4,atol=1e-5):
             raise RuntimeError('Duplicate-image caches disagree; recheck extraction provenance')
-    report.update(duplicate_checks=min(len(duplicates),64),duplicate_max_abs_difference=duplicate_max)
+    report.update(duplicate_checks=len(checked),duplicate_max_abs_difference=duplicate_max,
+        extraction_source_sha256={str(p.relative_to(repo)):sha(p) for p in [
+            repo/'projects/DGS/configs/CDIOD/extract_cdiod_features.py',
+            repo/'projects/DGS/configs/CDIOD/extract_feats.py',
+            repo/'projects/DGS/configs/_base_/gdino_inc_agnostic_CDIOD.py']})
     distributions=[];tasks=[];provenance=[]
     for task,images,paths in jobs:
         features=[];hashes=hashlib.sha256()
