@@ -1,0 +1,14 @@
+{
+  "README.md": "ed1cc110f7df39d3610284b6ce5cff02a3e3a3e3226efa6d85ba36ad8feb6c54",
+  "phase_results.json": "b6ee4bbaaef20b8ed7afda3d5d33ad77feb209feefffceb387277138d9123f33",
+  "saved_statistics_summary.json": "9b824eaf15af000d30369088effe678e7ddf4be3d6059f5660cab9bc66d3c094",
+  "runtime/fast_train.py": "ba3ea4afdd8de576cef0fd77f97289706a048ecbd1c14dcfd3603180e48174e3",
+  "runtime/continue_school_dual.py": "879c056baea92da26071fa87cad064adc26617c25fe6eb758bbdb509aaa7cd7e",
+  "runtime/continue_school_fast.py": "20615fbae95bdf6ae1c4053a8207ea4abba7eb82be1c8fff8025f509f5e2186a",
+  "configs/phase0.py": "6c9e9fc0424dc0fd7bd7d7e982ba1f7686dc9671f03907f35f400c0b51c381a9",
+  "configs/phase2.school.fast.py": "45c462735736a3921b037270bbb161364927c8e50ffe137365ddb4e8e5f5a168",
+  "configs/phase4.school.fast.py": "35abed6e2e8b14e445b841370bfeabca2b078f1f66904752e11898a42df706e5",
+  "configs/phase3.school.fast.py": "8f114ea7d0708e192a7f2b35f3b9356e6772df6bcc929adae8a7825120c55347",
+  "configs/phase1.school.fast.py": "bf38626897504e9593b3a111b582b943d4d1589479b8cae4c0091575b16e34fa",
+  "configs/phase1.school.dual.py": "8769c1641293e7d873457645ef6faef25e9009bbbdb06d89a86cf491cfc49cb5"
+}

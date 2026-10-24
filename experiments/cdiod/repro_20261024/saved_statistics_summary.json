@@ -1,0 +1,388 @@
+{
+  "tasks": [
+    "DIOR_Task2-1",
+    "DIOR_Task2-2",
+    "PascalVOC_Task2-1",
+    "PascalVOC_Task2-2",
+    "RUOD"
+  ],
+  "groups": [
+    0,
+    0,
+    1,
+    1,
+    2
+  ],
+  "expansion_threshold": 150,
+  "ood_threshold": 500,
+  "distance_definition": "0.5*(KL(P||Q)+KL(Q||P)), stored SVD-regularized Gaussian, final feature level, original dtype, CPU",
+  "source_code": "projects/DGS/dgs/domain_predictor/svd_domain_predictor.py:taskwise_adaptive_expansion; adaptive_domain_predictor.py:get_task_distribution",
+  "distance_matrix": [
+    [
+      0.0,
+      19.14478302001953,
+      423.8260498046875,
+      460.902099609375,
+      709.88330078125
+    ],
+    [
+      19.14478302001953,
+      0.0,
+      419.9283447265625,
+      467.5690002441406,
+      766.0615234375
+    ],
+    [
+      423.8260498046875,
+      419.9283447265625,
+      0.0,
+      31.771774291992188,
+      585.10791015625
+    ],
+    [
+      460.902099609375,
+      467.5690002441406,
+      31.771774291992188,
+      0.0,
+      620.293212890625
+    ],
+    [
+      709.88330078125,
+      766.0615234375,
+      585.10791015625,
+      620.293212890625,
+      0.0
+    ]
+  ],
+  "stats": [
+    {
+      "task": "DIOR_Task2-1",
+      "path": "feature_stats/svd/DIOR_Task2-1.pt",
+      "sha256": "73c76a0ad04137836dbeaa7b5c12bf1db82e9983cc3bb30ce3256c2b5e0210e8",
+      "stored_mean_shape": [
+        4,
+        256
+      ],
+      "selected_level": -1,
+      "dtype": "torch.float32",
+      "num_samples": 9689
+    },
+    {
+      "task": "DIOR_Task2-2",
+      "path": "feature_stats/svd/DIOR_Task2-2.pt",
+      "sha256": "3a0d0dd6a3782b7209ec1872cafa3062b5d08017880fc0bddc655db1594b34fa",
+      "stored_mean_shape": [
+        4,
+        256
+      ],
+      "selected_level": -1,
+      "dtype": "torch.float32",
+      "num_samples": 13025
+    },
+    {
+      "task": "PascalVOC_Task2-1",
+      "path": "feature_stats/svd/PascalVOC_Task2-1.pt",
+      "sha256": "8dcf19ad3c88bc7dc656ee77e0cf3c519486ab9dd6004d893148d8ca2fd97e95",
+      "stored_mean_shape": [
+        4,
+        256
+      ],
+      "selected_level": -1,
+      "dtype": "torch.float32",
+      "num_samples": 5847
+    },
+    {
+      "task": "PascalVOC_Task2-2",
+      "path": "feature_stats/svd/PascalVOC_Task2-2.pt",
+      "sha256": "e1c0316634bea1a822af3b0b6fa230cdd62d3b314d72f157f774333aa74cc1c9",
+      "stored_mean_shape": [
+        4,
+        256
+      ],
+      "selected_level": -1,
+      "dtype": "torch.float32",
+      "num_samples": 9928
+    },
+    {
+      "task": "RUOD",
+      "path": "feature_stats/svd/RUOD.pt",
+      "sha256": "259b5f0bcae51ae6400ed795363d78f64e73059ecf67c2e63215c1409105baba",
+      "stored_mean_shape": [
+        4,
+        256
+      ],
+      "selected_level": -1,
+      "dtype": "torch.float32",
+      "num_samples": 9800
+    }
+  ],
+  "group_membership_over_phases": [
+    {
+      "phase": 1,
+      "group": 0,
+      "members": [
+        "DIOR_Task2-1"
+      ],
+      "n": 1,
+      "mean_pair_distance": null,
+      "max_pair_distance": null
+    },
+    {
+      "phase": 2,
+      "group": 0,
+      "members": [
+        "DIOR_Task2-1",
+        "DIOR_Task2-2"
+      ],
+      "n": 2,
+      "mean_pair_distance": 19.14478302001953,
+      "max_pair_distance": 19.14478302001953
+    },
+    {
+      "phase": 3,
+      "group": 0,
+      "members": [
+        "DIOR_Task2-1",
+        "DIOR_Task2-2"
+      ],
+      "n": 2,
+      "mean_pair_distance": 19.14478302001953,
+      "max_pair_distance": 19.14478302001953
+    },
+    {
+      "phase": 3,
+      "group": 1,
+      "members": [
+        "PascalVOC_Task2-1"
+      ],
+      "n": 1,
+      "mean_pair_distance": null,
+      "max_pair_distance": null
+    },
+    {
+      "phase": 4,
+      "group": 0,
+      "members": [
+        "DIOR_Task2-1",
+        "DIOR_Task2-2"
+      ],
+      "n": 2,
+      "mean_pair_distance": 19.14478302001953,
+      "max_pair_distance": 19.14478302001953
+    },
+    {
+      "phase": 4,
+      "group": 1,
+      "members": [
+        "PascalVOC_Task2-1",
+        "PascalVOC_Task2-2"
+      ],
+      "n": 2,
+      "mean_pair_distance": 31.771774291992188,
+      "max_pair_distance": 31.771774291992188
+    },
+    {
+      "phase": 5,
+      "group": 0,
+      "members": [
+        "DIOR_Task2-1",
+        "DIOR_Task2-2"
+      ],
+      "n": 2,
+      "mean_pair_distance": 19.14478302001953,
+      "max_pair_distance": 19.14478302001953
+    },
+    {
+      "phase": 5,
+      "group": 1,
+      "members": [
+        "PascalVOC_Task2-1",
+        "PascalVOC_Task2-2"
+      ],
+      "n": 2,
+      "mean_pair_distance": 31.771774291992188,
+      "max_pair_distance": 31.771774291992188
+    },
+    {
+      "phase": 5,
+      "group": 2,
+      "members": [
+        "RUOD"
+      ],
+      "n": 1,
+      "mean_pair_distance": null,
+      "max_pair_distance": null
+    }
+  ],
+  "checkpoint_inventory": [
+    {
+      "task": "DIOR_Task2-1",
+      "path": "DIOR_Task2-1/epoch_12.pth",
+      "bytes": 749108289,
+      "saved_epoch": 12,
+      "saved_iter": 58140,
+      "lora_tensor_count": 48,
+      "lora_task_suffixes": [
+        "0"
+      ],
+      "example_keys": [
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_B.0",
+        "encoder.layers.0.ffn.layers.1.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.1.experts.0.lora_B.0"
+      ]
+    },
+    {
+      "task": "DIOR_Task2-2",
+      "path": "DIOR_Task2-2/epoch_11.pth",
+      "bytes": 738985301,
+      "saved_epoch": 11,
+      "saved_iter": 71643,
+      "lora_tensor_count": 96,
+      "lora_task_suffixes": [
+        "0",
+        "1"
+      ],
+      "example_keys": [
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_A.1",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_B.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_B.1"
+      ]
+    },
+    {
+      "task": "DIOR_Task2-2",
+      "path": "DIOR_Task2-2/epoch_12.pth",
+      "bytes": 737025861,
+      "saved_epoch": 12,
+      "saved_iter": 73272,
+      "lora_tensor_count": 48,
+      "lora_task_suffixes": [
+        "0"
+      ],
+      "example_keys": [
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_B.0",
+        "encoder.layers.0.ffn.layers.1.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.1.experts.0.lora_B.0"
+      ]
+    },
+    {
+      "task": "PascalVOC_Task2-1",
+      "path": "PascalVOC_Task2-1/epoch_11.pth",
+      "bytes": 710854673,
+      "saved_epoch": 11,
+      "saved_iter": 8041,
+      "lora_tensor_count": 96,
+      "lora_task_suffixes": [
+        "0",
+        "2"
+      ],
+      "example_keys": [
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_B.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_A.2",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_B.2"
+      ]
+    },
+    {
+      "task": "PascalVOC_Task2-1",
+      "path": "PascalVOC_Task2-1/epoch_12.pth",
+      "bytes": 711460177,
+      "saved_epoch": 12,
+      "saved_iter": 8772,
+      "lora_tensor_count": 96,
+      "lora_task_suffixes": [
+        "0",
+        "2"
+      ],
+      "example_keys": [
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_B.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_A.2",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_B.2"
+      ]
+    },
+    {
+      "task": "PascalVOC_Task2-2",
+      "path": "PascalVOC_Task2-2/epoch_11.pth",
+      "bytes": 717942821,
+      "saved_epoch": 11,
+      "saved_iter": 23579,
+      "lora_tensor_count": 144,
+      "lora_task_suffixes": [
+        "0",
+        "2",
+        "3"
+      ],
+      "example_keys": [
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_B.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_A.2",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_A.3"
+      ]
+    },
+    {
+      "task": "PascalVOC_Task2-2",
+      "path": "PascalVOC_Task2-2/epoch_12.pth",
+      "bytes": 716398421,
+      "saved_epoch": 12,
+      "saved_iter": 26061,
+      "lora_tensor_count": 96,
+      "lora_task_suffixes": [
+        "0",
+        "2"
+      ],
+      "example_keys": [
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_B.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_A.2",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_B.2"
+      ]
+    },
+    {
+      "task": "RUOD",
+      "path": "RUOD/epoch_11.pth",
+      "bytes": 729224865,
+      "saved_epoch": 11,
+      "saved_iter": 26950,
+      "lora_tensor_count": 144,
+      "lora_task_suffixes": [
+        "0",
+        "2",
+        "4"
+      ],
+      "example_keys": [
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_B.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_A.2",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_B.2"
+      ]
+    },
+    {
+      "task": "RUOD",
+      "path": "RUOD/epoch_12.pth",
+      "bytes": 731258529,
+      "saved_epoch": 12,
+      "saved_iter": 29400,
+      "lora_tensor_count": 144,
+      "lora_task_suffixes": [
+        "0",
+        "2",
+        "4"
+      ],
+      "example_keys": [
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_A.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.0.lora_B.0",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_A.2",
+        "encoder.layers.0.ffn.layers.0.0.experts.1.lora_B.2"
+      ]
+    }
+  ],
+  "limitations": [
+    "Distances are fixed task statistics, not adapter-dependent representation drift.",
+    "Singleton-group pair distances are undefined (null), not zero.",
+    "Maximum group size is two; this run cannot establish progressive dispersion in growing groups.",
+    "Epoch 11 is an earlier training state, not the exact end-of-training pre-merge state."
+  ]
+}
