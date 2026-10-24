@@ -77,11 +77,24 @@ Use a fresh output directory on reruns. The status JSON records the checked-out
 commit, completed steps, and failures. This command does not contain any
 training launch or automatic GPU extraction, even if a trigger is found.
 
-These steps remain pending while the school SSH endpoint is unreachable. The
-CPU cached-statistics script has received syntax review, but has NOT yet been
-validated against the server's torch environment. Runtime predictor integration
-also needs a CPU check on saved statistics after connectivity returns. Do not
-report server deployment or ten-task results as completed until they succeed.
+Completed on the school server on 2026-10-24, 19:26:43--19:27:54 Asia/Shanghai,
+using source commit `6e12337`. See `ten_phase_20261024/` for results. All cache
+entries were present; 64 duplicate-image checks agreed exactly. Actual SVD
+predictor checks passed for saved five-task statistics, a synthetic Gaussian
+chain, and subsequently all ten cached task statistics at caps None/150/200/300.
+The ten-task runtime trace diameters agree with offline replay within 1e-3.
+No GPU or training was used. The pre-existing untracked server file was retained.
+
+Ten-task real-data simulations: six dataset orders x three caps = 18 cases,
+zero changed partitions. Maximum within-domain symmetric KL: DIOR 41.1091,
+PascalVOC 97.5256, RUOD 48.0425. The minimum cross-domain distance is 420.0185.
+Consequently, for this fixed matrix, all within-domain distances are below 150
+and all cross-domain distances are above 150. The original DTG and diameter caps
+of at least 150 produce the same domain grouping under any task ordering; the
+six sampled dataset orders are consistent with this structural bound. This is
+not an AP result or a general disproof of chaining in other task streams.
+There is currently no informative original-vs-constraint training intervention
+at the predeclared caps, so no training has been launched.
 
 ## Online record and constraint switches
 

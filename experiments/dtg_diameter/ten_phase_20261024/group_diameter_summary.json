@@ -1,0 +1,41 @@
+{
+  "groups": [
+    {
+      "domain": "DIOR",
+      "members": [
+        "DIOR_Task4-1",
+        "DIOR_Task4-2",
+        "DIOR_Task4-3",
+        "DIOR_Task4-4"
+      ],
+      "diameter": 41.10912322998047,
+      "mean_pair": 31.42806116739909
+    },
+    {
+      "domain": "PascalVOC",
+      "members": [
+        "PascalVOC_Task4-1",
+        "PascalVOC_Task4-2",
+        "PascalVOC_Task4-3",
+        "PascalVOC_Task4-4"
+      ],
+      "diameter": 97.52558898925781,
+      "mean_pair": 57.45883051554362
+    },
+    {
+      "domain": "RUOD",
+      "members": [
+        "RUOD_Task2-1",
+        "RUOD_Task2-2"
+      ],
+      "diameter": 48.04252624511719,
+      "mean_pair": 48.04252624511719
+    }
+  ],
+  "min_cross_domain_distance": 420.0184631347656,
+  "max_within_domain_distance": 97.52558898925781,
+  "threshold": 150,
+  "all_within_below_150": true,
+  "all_cross_above_150": true,
+  "scope": "cached train statistics for the official ten-task partition; not an AP experiment"
+}

@@ -1,0 +1,42 @@
+{
+  "cpu_only": true,
+  "annotations_sha256": {
+    "data/CDIOD/DIOR/train/annotations_without_background_Task2-1.json": "0c1248d09c05d216e89366919e8c3d5cbddb4fc210a0d0fc76633acd48475498",
+    "data/CDIOD/DIOR/train/annotations_without_background_Task2-2.json": "3a72ca4167ef89ed839d2b0ff0ef6d23822176f5d9ab29fdfb4109fb5b622288",
+    "data/CDIOD/DIOR/train/annotations_without_background_Task4-1.json": "a5a2aac2edab8c94db301e84f4937ab548e3c02991dd5b91aaeb76b5f68a202c",
+    "data/CDIOD/DIOR/train/annotations_without_background_Task4-2.json": "dbb599014ad3a762c87da83ca15aa266bdf8e17f4e9079e0f6836a0d2003fd48",
+    "data/CDIOD/DIOR/train/annotations_without_background_Task4-3.json": "8b1103f3465d1b8f67db68cf5316d2af76cb8597b8ef10ca28a34fedceed0501",
+    "data/CDIOD/DIOR/train/annotations_without_background_Task4-4.json": "571feb7ed30daf0444b00f14e51d42da676ab6167d7ee15bddb0b906b663e26c",
+    "data/CDIOD/PascalVOC/train/annotations_without_background_Task2-1.json": "891c2f7b89604bc95fff5e9d17a5622c98ec11793b54733a9ae767d89e1b96ac",
+    "data/CDIOD/PascalVOC/train/annotations_without_background_Task2-2.json": "d11fedc97ba00a1ce88558d1f58fea46527b9aa237cbb1eaa37a7a24c1eae0fa",
+    "data/CDIOD/PascalVOC/train/annotations_without_background_Task4-1.json": "bf557c3414d23f212c0588ad61a0ecb332aa33426c3e882723c99102c138602a",
+    "data/CDIOD/PascalVOC/train/annotations_without_background_Task4-2.json": "8a1d5638295ae831e72577425e2b920e6b3864ee9d8e6b493680eaae573203f4",
+    "data/CDIOD/PascalVOC/train/annotations_without_background_Task4-3.json": "1c7281df2df58828c43af6bf49002c76e344c1df8c7d87b85da5a3445071b604",
+    "data/CDIOD/PascalVOC/train/annotations_without_background_Task4-4.json": "fbccc3fb840f6fd079b552c87269a83d5e1a594c311ac10ab5cdbca158f04411",
+    "data/CDIOD/RUOD/train/annotations_without_background.json": "ec124c587382c4e4c89d28490ec3a145497b27ac2ad2ffa0afbf263bdc406310",
+    "data/CDIOD/RUOD/train/annotations_without_background_Task2-1.json": "86653fb691e484e3ff425bb81d342117d814dbaaed4efb1eda23b04aebc003c4",
+    "data/CDIOD/RUOD/train/annotations_without_background_Task2-2.json": "38905b95c7ceb8127a15afe76cf8124d180a4528db09944c5f98b48873f9cc18"
+  },
+  "missing": [],
+  "requested_tasks": [
+    "DIOR_Task4-1",
+    "DIOR_Task4-2",
+    "DIOR_Task4-3",
+    "DIOR_Task4-4",
+    "PascalVOC_Task4-1",
+    "PascalVOC_Task4-2",
+    "PascalVOC_Task4-3",
+    "PascalVOC_Task4-4",
+    "RUOD_Task2-1",
+    "RUOD_Task2-2"
+  ],
+  "source": "existing train per-image feature caches",
+  "reuse_assumption": "Cache extraction used the unchanged frozen backbone/neck, checkpoint and deterministic test preprocessing; exact per-file extraction manifests were not originally recorded.",
+  "duplicate_checks": 64,
+  "duplicate_max_abs_difference": 0.0,
+  "extraction_source_sha256": {
+    "projects/DGS/configs/CDIOD/extract_cdiod_features.py": "d86b1d5cab6e12dd76f10514cde69e8ce34a28d2be70648e0f6d048913382221",
+    "projects/DGS/configs/CDIOD/extract_feats.py": "ab571c6a809dfdccaf6da770e8a1612ca2b3d6d57d7383401bc384fb517eea63",
+    "projects/DGS/configs/_base_/gdino_inc_agnostic_CDIOD.py": "ab89e886bb6e1389ee51dfd1e087e8f792bb2c00b51e4dd803f5d303e7f74e9e"
+  }
+}

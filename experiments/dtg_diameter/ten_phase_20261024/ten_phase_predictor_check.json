@@ -1,0 +1,71 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "training_started": false,
+  "cases": [
+    {
+      "cap": null,
+      "passed": true,
+      "groups": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "cap": 150,
+      "passed": true,
+      "groups": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "cap": 200,
+      "passed": true,
+      "groups": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "cap": 300,
+      "passed": true,
+      "groups": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ]
+    }
+  ]
+}

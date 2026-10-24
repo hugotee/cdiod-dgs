@@ -1,0 +1,17 @@
+{
+  "code_commit": "6e12337fbf276e36d3f5533832aaa8e7956ecd9c",
+  "started_at": "2026-10-24T11:26:43.607017+00:00",
+  "status": "complete",
+  "training_started": false,
+  "gpu_used": false,
+  "completed_steps": [
+    "predictor",
+    "statistics",
+    "simulation"
+  ],
+  "current_step": "simulation",
+  "has_observed_trigger": false,
+  "changed_run_count": 0,
+  "training_gate": "no changed grouping at these caps; do not launch an uninformative retraining",
+  "finished_at": "2026-10-24T11:27:54.602770+00:00"
+}

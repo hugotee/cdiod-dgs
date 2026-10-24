@@ -1,0 +1,76 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "detector_built": false,
+  "training_started": false,
+  "cases": [
+    {
+      "case": "stored_five_task_statistics",
+      "cap": null,
+      "groups": [
+        0,
+        0,
+        1,
+        1,
+        2
+      ],
+      "passed": true
+    },
+    {
+      "case": "stored_five_task_statistics",
+      "cap": 150,
+      "groups": [
+        0,
+        0,
+        1,
+        1,
+        2
+      ],
+      "passed": true
+    },
+    {
+      "case": "stored_five_task_statistics",
+      "cap": 200,
+      "groups": [
+        0,
+        0,
+        1,
+        1,
+        2
+      ],
+      "passed": true
+    },
+    {
+      "case": "stored_five_task_statistics",
+      "cap": 300,
+      "groups": [
+        0,
+        0,
+        1,
+        1,
+        2
+      ],
+      "passed": true
+    },
+    {
+      "case": "synthetic_gaussian_chain_not_benchmark_evidence",
+      "cap": null,
+      "groups": [
+        0,
+        0,
+        0
+      ],
+      "passed": true
+    },
+    {
+      "case": "synthetic_gaussian_chain_not_benchmark_evidence",
+      "cap": 150,
+      "groups": [
+        0,
+        0,
+        1
+      ],
+      "passed": true
+    }
+  ]
+}

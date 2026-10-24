@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "code_commit": "6e12337fbf276e36d3f5533832aaa8e7956ecd9c",
+  "runtime_predictor_checks_passed": true,
+  "ten_tasks": 10,
+  "permutations": 6,
+  "caps": [
+    150.0,
+    200.0,
+    300.0
+  ],
+  "modified_simulations": 18,
+  "changed_simulations": 0,
+  "gpu_used": false,
+  "training_started": false,
+  "cache_missing_count": 0,
+  "cache_duplicate_checks": 64,
+  "cache_duplicate_max_abs_difference": 0.0
+}
