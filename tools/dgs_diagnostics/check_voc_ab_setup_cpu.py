@@ -25,6 +25,7 @@ def main():
     from mmengine.config import Config
     from mmengine.logging import MMLogger
     from mmengine.runner import Runner, set_random_seed
+    from mmengine.runner.loops import EpochBasedTrainLoop
     from mmdet.registry import DATASETS
     from mmdet.utils import register_all_modules
     register_all_modules(init_default_scope=True)
@@ -79,7 +80,10 @@ def main():
         runner = object.__new__(Runner)
         runner._hooks = []
         runner._work_dir = temporary
-        runner._train_loop = SimpleNamespace(epoch=11, max_epochs=12, iter=1000, max_iters=1000)
+        loop = object.__new__(EpochBasedTrainLoop)
+        loop._epoch, loop._max_epochs = 11, 12
+        loop._iter, loop._max_iters = 1000, 1000
+        runner._train_loop = loop
         runner.model = Toy()
         runner.cfg = Config(dict(load_from='shared_prefix_test.pth'))
         audit = VOCDiagnosticAuditHook()
@@ -87,7 +91,7 @@ def main():
         runner.register_hook(MergeHook(dict(type='ema')))
         runner.register_hook(audit)
         runner.call_hook('after_train_epoch')
-        runner._train_loop.epoch = 12
+        runner._train_loop._epoch = 12
         runner.call_hook('after_train')
         before = torch.load(Path(temporary)/'diagnostic_states/new_premerge.pth', map_location='cpu')
         after = torch.load(Path(temporary)/'diagnostic_states/merged.pth', map_location='cpu')
