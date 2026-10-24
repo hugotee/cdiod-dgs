@@ -6,7 +6,8 @@ import yaml
 from mmengine.logging import MMLogger
 
 from .adaptive_domain_predictor import AdaptiveDomainPredictor_Dist, gather_img_emebedding
-from .grouping_diagnostics import candidate_group_record, append_grouping_record
+from .grouping_diagnostics import (
+    candidate_group_record, append_grouping_record, apply_diameter_limit)
 
 # ---------------------------------------------------------------------------
 # Utility function
@@ -58,6 +59,11 @@ class AdaptiveDomainPredictor_SVD(AdaptiveDomainPredictor_Dist):
         # Read min_eig_ratio before super().__init__ because super() calls
         # load_task_stats -> estimate_task_stats which needs this attribute.
         self.min_eig_ratio = getattr(domain_predictor_cfg, 'min_eig_ratio', 1e-3)
+        self.max_group_kl = getattr(domain_predictor_cfg, 'max_group_kl', None)
+        if self.max_group_kl is not None:
+            import math
+            if not math.isfinite(self.max_group_kl) or self.max_group_kl <= 0:
+                raise ValueError('max_group_kl must be finite and positive, or None')
         super().__init__(
             domain_predictor_cfg=domain_predictor_cfg,
             num_tasks=num_tasks,
@@ -185,9 +191,11 @@ class AdaptiveDomainPredictor_SVD(AdaptiveDomainPredictor_Dist):
             logger.info(f'distances with all seen tasks: {distances_tensor}')
             min_dist, closest_task_id = torch.min(distances_tensor, dim=0)
 
-            # Opt-in observation only: keep the original branch below intact.
+            # Disabled by default. Keep the original tensor nearest-neighbor
+            # predicate when recording or applying the additional constraint.
             trace_path = getattr(self.domain_predictor_cfg, 'grouping_trace_path', None)
-            if trace_path:
+            merge_allowed = bool(min_dist < self.expand_th)
+            if trace_path or self.max_group_kl is not None:
                 def pair_distance(a, b):
                     _, _, da = self.get_task_distribution(a)
                     _, _, db = self.get_task_distribution(b)
@@ -201,13 +209,16 @@ class AdaptiveDomainPredictor_SVD(AdaptiveDomainPredictor_Dist):
                     cur_task_id, self.task_id_mapping,
                     distances_tensor.tolist(), pair_distance, self.expand_th)
                 record['original_accepts'] = bool(min_dist < self.expand_th)
-                record['accepts'] = record['original_accepts']
                 record['task_names'] = list(self.seen_tasks)
-                record['max_group_kl'] = None
-                if not dist.is_initialized() or dist.get_rank() == 0:
+                record = apply_diameter_limit(record, self.max_group_kl)
+                merge_allowed = record['accepts']
+                if record['diameter_rejected_original_merge']:
+                    logger.info('Group diameter %.4f exceeds %.4f; start a new group',
+                                record['group_diameter_after'], self.max_group_kl)
+                if trace_path and (not dist.is_initialized() or dist.get_rank() == 0):
                     append_grouping_record(trace_path, record)
 
-            if min_dist < self.expand_th:
+            if merge_allowed:
                 task_group_id = self.task_id_mapping[closest_task_id.item()]
                 self.task_id_mapping[cur_task_id] = task_group_id
                 logger.info(

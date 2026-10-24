@@ -12,6 +12,42 @@ spec.loader.exec_module(module)
 
 
 class GroupingDiagnosticsTest(unittest.TestCase):
+    def test_disabled_limit_preserves_original_acceptance(self):
+        row=module.candidate_group_record(2,{0:0,1:0},[20,250],lambda a,b:40,150)
+        result=module.apply_diameter_limit(row,None)
+        self.assertTrue(result['accepts'])
+        self.assertEqual(result['decided_group'],0)
+        self.assertNotIn('accepts',row)
+
+    def test_diameter_rejects_chain_despite_close_neighbor(self):
+        row=module.candidate_group_record(2,{0:0,1:0},[20,250],lambda a,b:40,150)
+        result=module.apply_diameter_limit(row,150)
+        self.assertFalse(result['accepts'])
+        self.assertEqual(result['reason'],'diameter_limit')
+        self.assertEqual(result['decided_group'],1)
+
+    def test_threshold_boundaries(self):
+        row=module.candidate_group_record(1,{0:0},[150],lambda a,b:0,150)
+        self.assertFalse(module.apply_diameter_limit(row,150)['accepts'])
+        row=module.candidate_group_record(1,{0:0},[100],lambda a,b:0,150)
+        self.assertTrue(module.apply_diameter_limit(row,100)['accepts'])
+
+    def test_small_range_does_not_imply_small_diameter(self):
+        row=module.candidate_group_record(2,{0:0,1:0},[100,101],lambda a,b:300,150)
+        self.assertEqual(row['kl_range'],1)
+        self.assertFalse(module.apply_diameter_limit(row,150)['accepts'])
+
+    def test_far_group_is_rejected_even_when_diameter_limit_disabled(self):
+        row=module.candidate_group_record(1,{0:0},[400],lambda a,b:0,150)
+        self.assertFalse(module.apply_diameter_limit(row,None)['accepts'])
+
+    def test_invalid_caps_and_nonfinite_distances_fail(self):
+        row=module.candidate_group_record(1,{0:0},[20],lambda a,b:0,150)
+        for limit in [-1,0,float('nan'),float('inf')]:
+            with self.assertRaises(ValueError):module.apply_diameter_limit(row,limit)
+        with self.assertRaises(ValueError):
+            module.candidate_group_record(1,{0:0},[float('nan')],lambda a,b:0,150)
+
     def test_singleton_distance_is_not_zero(self):
         row = module.candidate_group_record(1, {0: 0}, [19.14], lambda a,b: 0, 150)
         self.assertEqual(row['kl_range'], 0)

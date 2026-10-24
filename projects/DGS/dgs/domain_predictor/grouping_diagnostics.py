@@ -47,3 +47,27 @@ def append_grouping_record(path, record):
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open('a', encoding='utf-8') as stream:
         stream.write(json.dumps(record, ensure_ascii=False, allow_nan=False)+'\n')
+
+
+def apply_diameter_limit(record, max_group_kl=None):
+    """Annotate a decision without mutating the observation or its mapping.
+
+    None disables the constraint. Keep the nearest-neighbor test STRICT (<),
+    and apply the diameter cap inclusively (<=). A rejected candidate starts
+    a new group; this does not search for an alternative group.
+    """
+    if max_group_kl is not None:
+        max_group_kl = float(max_group_kl)
+        if not math.isfinite(max_group_kl) or max_group_kl <= 0:
+            raise ValueError('max_group_kl must be finite and positive, or None')
+    result = dict(record)
+    result['max_group_kl'] = max_group_kl
+    passes = max_group_kl is None or record['group_diameter_after'] <= max_group_kl
+    result['diameter_accepts'] = passes
+    result['accepts'] = record['original_accepts'] and passes
+    result['diameter_rejected_original_merge'] = record['original_accepts'] and not passes
+    result['decided_group'] = (record['candidate_group'] if result['accepts'] else
+                               max(record['mapping_before'].values())+1)
+    result['reason'] = ('nearest_distance' if not record['original_accepts'] else
+                        'diameter_limit' if not passes else 'accepted')
+    return result
