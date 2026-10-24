@@ -96,6 +96,31 @@ not an AP result or a general disproof of chaining in other task streams.
 There is currently no informative original-vs-constraint training intervention
 at the predeclared caps, so no training has been launched.
 
+## Focused diameter-vs-nearest control sweep
+
+`diameter_controls_20261024/` adds a primary cap of 150 and an exploratory grid
+of 25/50/75/100/150/200/300, with a nearest-threshold-only control for every cap.
+Both five- and ten-task matrices retain the baseline grouping at 150. In the
+ten-task given within-domain order, cap 75 rejects VOC task 4: nearest KL 39.5044
+but candidate diameter 97.5256, compared with pre-admission diameter 72.8128.
+The nearest-only threshold 75 still admits it. This distinction persists across
+the six dataset-block permutations, which are not independent training seeds.
+At cap 75 the five-task sequence does not change. No AP was used or measured.
+This lower-cap case is an exploratory intervention, not evidence of a diameter
+above the original 150 scale or evidence that splitting improves detection.
+The Chinese report and full-precision per-task records are in that directory.
+
+```bash
+python tools/dgs_diagnostics/compare_diameter_controls.py \
+  --input experiments/dtg_diameter/ten_phase_20261024/distance_matrix.json \
+  --output-dir work_dirs/dtg_diagnostics/diameter_controls
+python -m unittest discover -s tests -p test_dgs_diameter_controls.py -v
+```
+
+`check_diameter_controls_cpu.py --repo ... --stats ... --output-dir ...`
+checks the three strategies against the actual SVD predictor with existing task
+statistics; it never constructs a detector or launches training.
+
 ## Online record and constraint switches
 
 In `model.domain_predictor_cfg`:

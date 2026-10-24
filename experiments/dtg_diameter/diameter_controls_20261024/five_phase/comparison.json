@@ -1,0 +1,4654 @@
+{
+  "input_sha256": "9b824eaf15af000d30369088effe678e7ddf4be3d6059f5660cab9bc66d3c094",
+  "tasks": [
+    "DIOR_Task2-1",
+    "DIOR_Task2-2",
+    "PascalVOC_Task2-1",
+    "PascalVOC_Task2-2",
+    "RUOD"
+  ],
+  "original_nearest_threshold": 150,
+  "primary_cap": 150,
+  "exploratory_caps": [
+    25.0,
+    50.0,
+    75.0,
+    100.0,
+    200.0,
+    300.0
+  ],
+  "cap_grid_fixed_before_execution": true,
+  "training_started": false,
+  "gpu_used": false,
+  "methods": {
+    "baseline": "min(new, old) < original_nearest_threshold",
+    "nearest_control": "min(new, old) < min(original_nearest_threshold, cap)",
+    "diameter_rule": "original nearest condition AND candidate group diameter <= cap"
+  },
+  "any_distance_equals_scanned_threshold": false,
+  "summaries": [
+    {
+      "cap": 25.0,
+      "primary": false,
+      "dataset_order_count": 6,
+      "changed_from_baseline": 6,
+      "differs_from_nearest_control": 0,
+      "baseline_n_groups": [
+        3
+      ],
+      "nearest_n_groups": [
+        4
+      ],
+      "diameter_n_groups": [
+        4
+      ]
+    },
+    {
+      "cap": 50.0,
+      "primary": false,
+      "dataset_order_count": 6,
+      "changed_from_baseline": 0,
+      "differs_from_nearest_control": 0,
+      "baseline_n_groups": [
+        3
+      ],
+      "nearest_n_groups": [
+        3
+      ],
+      "diameter_n_groups": [
+        3
+      ]
+    },
+    {
+      "cap": 75.0,
+      "primary": false,
+      "dataset_order_count": 6,
+      "changed_from_baseline": 0,
+      "differs_from_nearest_control": 0,
+      "baseline_n_groups": [
+        3
+      ],
+      "nearest_n_groups": [
+        3
+      ],
+      "diameter_n_groups": [
+        3
+      ]
+    },
+    {
+      "cap": 100.0,
+      "primary": false,
+      "dataset_order_count": 6,
+      "changed_from_baseline": 0,
+      "differs_from_nearest_control": 0,
+      "baseline_n_groups": [
+        3
+      ],
+      "nearest_n_groups": [
+        3
+      ],
+      "diameter_n_groups": [
+        3
+      ]
+    },
+    {
+      "cap": 150.0,
+      "primary": true,
+      "dataset_order_count": 6,
+      "changed_from_baseline": 0,
+      "differs_from_nearest_control": 0,
+      "baseline_n_groups": [
+        3
+      ],
+      "nearest_n_groups": [
+        3
+      ],
+      "diameter_n_groups": [
+        3
+      ]
+    },
+    {
+      "cap": 200.0,
+      "primary": false,
+      "dataset_order_count": 6,
+      "changed_from_baseline": 0,
+      "differs_from_nearest_control": 0,
+      "baseline_n_groups": [
+        3
+      ],
+      "nearest_n_groups": [
+        3
+      ],
+      "diameter_n_groups": [
+        3
+      ]
+    },
+    {
+      "cap": 300.0,
+      "primary": false,
+      "dataset_order_count": 6,
+      "changed_from_baseline": 0,
+      "differs_from_nearest_control": 0,
+      "baseline_n_groups": [
+        3
+      ],
+      "nearest_n_groups": [
+        3
+      ],
+      "diameter_n_groups": [
+        3
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "dataset_order": "DIOR->PascalVOC->RUOD",
+      "cap": 25.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 4,
+      "diameter_n_groups": 4,
+      "diameter_differs_from_baseline": true,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 1,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->PascalVOC->RUOD",
+      "cap": 50.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->PascalVOC->RUOD",
+      "cap": 75.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->PascalVOC->RUOD",
+      "cap": 100.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->PascalVOC->RUOD",
+      "cap": 150.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->PascalVOC->RUOD",
+      "cap": 200.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->PascalVOC->RUOD",
+      "cap": 300.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->RUOD->PascalVOC",
+      "cap": 25.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 4,
+      "diameter_n_groups": 4,
+      "diameter_differs_from_baseline": true,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 1,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->RUOD->PascalVOC",
+      "cap": 50.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->RUOD->PascalVOC",
+      "cap": 75.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->RUOD->PascalVOC",
+      "cap": 100.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->RUOD->PascalVOC",
+      "cap": 150.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->RUOD->PascalVOC",
+      "cap": 200.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "DIOR->RUOD->PascalVOC",
+      "cap": 300.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->DIOR->RUOD",
+      "cap": 25.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 4,
+      "diameter_n_groups": 4,
+      "diameter_differs_from_baseline": true,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 1,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->DIOR->RUOD",
+      "cap": 50.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->DIOR->RUOD",
+      "cap": 75.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->DIOR->RUOD",
+      "cap": 100.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->DIOR->RUOD",
+      "cap": 150.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->DIOR->RUOD",
+      "cap": 200.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->DIOR->RUOD",
+      "cap": 300.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->RUOD->DIOR",
+      "cap": 25.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 4,
+      "diameter_n_groups": 4,
+      "diameter_differs_from_baseline": true,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 1,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->RUOD->DIOR",
+      "cap": 50.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->RUOD->DIOR",
+      "cap": 75.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->RUOD->DIOR",
+      "cap": 100.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->RUOD->DIOR",
+      "cap": 150.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->RUOD->DIOR",
+      "cap": 200.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "PascalVOC->RUOD->DIOR",
+      "cap": 300.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->DIOR->PascalVOC",
+      "cap": 25.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 4,
+      "diameter_n_groups": 4,
+      "diameter_differs_from_baseline": true,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 1,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->DIOR->PascalVOC",
+      "cap": 50.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->DIOR->PascalVOC",
+      "cap": 75.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->DIOR->PascalVOC",
+      "cap": 100.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->DIOR->PascalVOC",
+      "cap": 150.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->DIOR->PascalVOC",
+      "cap": 200.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->DIOR->PascalVOC",
+      "cap": 300.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->PascalVOC->DIOR",
+      "cap": 25.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 4,
+      "diameter_n_groups": 4,
+      "diameter_differs_from_baseline": true,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 1,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->PascalVOC->DIOR",
+      "cap": 50.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->PascalVOC->DIOR",
+      "cap": 75.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->PascalVOC->DIOR",
+      "cap": 100.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->PascalVOC->DIOR",
+      "cap": 150.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->PascalVOC->DIOR",
+      "cap": 200.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    },
+    {
+      "dataset_order": "RUOD->PascalVOC->DIOR",
+      "cap": 300.0,
+      "baseline_n_groups": 3,
+      "nearest_n_groups": 3,
+      "diameter_n_groups": 3,
+      "diameter_differs_from_baseline": false,
+      "diameter_differs_from_nearest": false,
+      "diameter_rejections": 0,
+      "first_difference_task": null
+    }
+  ],
+  "given_order_details": [
+    {
+      "cap": 25.0,
+      "baseline": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "nearest_control": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          2,
+          3
+        ],
+        "n_groups": 4,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 25.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 25.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 25.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 2
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 585.10791015625,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 585.10791015625,
+            "expand_th": 25.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 3,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1"
+          ],
+          [
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "diameter_rule": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": 25.0,
+        "groups": [
+          0,
+          0,
+          1,
+          2,
+          3
+        ],
+        "n_groups": 4,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 25.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 25.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 25.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": true,
+            "decided_group": 2,
+            "reason": "diameter_limit",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 2
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 585.10791015625,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 585.10791015625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 25.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 3,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1"
+          ],
+          [
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "first_difference": null
+    },
+    {
+      "cap": 50.0,
+      "baseline": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "nearest_control": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 50.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 50.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 50.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 50.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "diameter_rule": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": 50.0,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 50.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 50.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 50.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 50.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "first_difference": null
+    },
+    {
+      "cap": 75.0,
+      "baseline": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "nearest_control": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 75.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 75.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 75.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 75.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "diameter_rule": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": 75.0,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 75.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 75.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 75.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 75.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "first_difference": null
+    },
+    {
+      "cap": 100.0,
+      "baseline": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "nearest_control": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 100.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 100.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 100.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 100.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "diameter_rule": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": 100.0,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 100.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 100.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 100.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 100.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "first_difference": null
+    },
+    {
+      "cap": 150.0,
+      "baseline": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "nearest_control": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "diameter_rule": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": 150.0,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 150.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 150.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 150.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 150.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "first_difference": null
+    },
+    {
+      "cap": 200.0,
+      "baseline": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "nearest_control": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "diameter_rule": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": 200.0,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 200.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 200.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 200.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 200.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "first_difference": null
+    },
+    {
+      "cap": 300.0,
+      "baseline": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "nearest_control": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": null,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": null,
+            "diameter_accepts": true,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "diameter_rule": {
+        "order": [
+          "DIOR_Task2-1",
+          "DIOR_Task2-2",
+          "PascalVOC_Task2-1",
+          "PascalVOC_Task2-2",
+          "RUOD"
+        ],
+        "max_group_kl": 300.0,
+        "groups": [
+          0,
+          0,
+          1,
+          1,
+          2
+        ],
+        "n_groups": 3,
+        "records": [
+          {
+            "task_id": 1,
+            "mapping_before": {
+              "0": 0
+            },
+            "nearest_task": 0,
+            "candidate_group": 0,
+            "members_before": [
+              0
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              19.14478302001953
+            ],
+            "candidate_distances": {
+              "0": 19.14478302001953
+            },
+            "min_kl": 19.14478302001953,
+            "max_kl": 19.14478302001953,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 19.14478302001953,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 300.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 0,
+            "reason": "accepted",
+            "task_name": "DIOR_Task2-2",
+            "member_names": [
+              "DIOR_Task2-1"
+            ]
+          },
+          {
+            "task_id": 2,
+            "mapping_before": {
+              "0": 0,
+              "1": 0
+            },
+            "nearest_task": 1,
+            "candidate_group": 0,
+            "members_before": [
+              0,
+              1
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              423.8260498046875,
+              419.9283447265625
+            ],
+            "candidate_distances": {
+              "0": 423.8260498046875,
+              "1": 419.9283447265625
+            },
+            "min_kl": 419.9283447265625,
+            "max_kl": 423.8260498046875,
+            "kl_range": 3.897705078125,
+            "group_diameter_before": 19.14478302001953,
+            "group_diameter_after": 423.8260498046875,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 300.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "nearest_distance",
+            "task_name": "PascalVOC_Task2-1",
+            "member_names": [
+              "DIOR_Task2-1",
+              "DIOR_Task2-2"
+            ]
+          },
+          {
+            "task_id": 3,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2
+            ],
+            "group_size_before": 1,
+            "all_prior_distances": [
+              460.902099609375,
+              467.5690002441406,
+              31.771774291992188
+            ],
+            "candidate_distances": {
+              "2": 31.771774291992188
+            },
+            "min_kl": 31.771774291992188,
+            "max_kl": 31.771774291992188,
+            "kl_range": 0.0,
+            "group_diameter_before": 0.0,
+            "group_diameter_after": 31.771774291992188,
+            "expand_th": 150.0,
+            "original_accepts": true,
+            "max_group_kl": 300.0,
+            "diameter_accepts": true,
+            "accepts": true,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 1,
+            "reason": "accepted",
+            "task_name": "PascalVOC_Task2-2",
+            "member_names": [
+              "PascalVOC_Task2-1"
+            ]
+          },
+          {
+            "task_id": 4,
+            "mapping_before": {
+              "0": 0,
+              "1": 0,
+              "2": 1,
+              "3": 1
+            },
+            "nearest_task": 2,
+            "candidate_group": 1,
+            "members_before": [
+              2,
+              3
+            ],
+            "group_size_before": 2,
+            "all_prior_distances": [
+              709.88330078125,
+              766.0615234375,
+              585.10791015625,
+              620.293212890625
+            ],
+            "candidate_distances": {
+              "2": 585.10791015625,
+              "3": 620.293212890625
+            },
+            "min_kl": 585.10791015625,
+            "max_kl": 620.293212890625,
+            "kl_range": 35.185302734375,
+            "group_diameter_before": 31.771774291992188,
+            "group_diameter_after": 620.293212890625,
+            "expand_th": 150.0,
+            "original_accepts": false,
+            "max_group_kl": 300.0,
+            "diameter_accepts": false,
+            "accepts": false,
+            "diameter_rejected_original_merge": false,
+            "decided_group": 2,
+            "reason": "nearest_distance",
+            "task_name": "RUOD",
+            "member_names": [
+              "PascalVOC_Task2-1",
+              "PascalVOC_Task2-2"
+            ]
+          }
+        ],
+        "partition": [
+          [
+            "DIOR_Task2-1",
+            "DIOR_Task2-2"
+          ],
+          [
+            "PascalVOC_Task2-1",
+            "PascalVOC_Task2-2"
+          ],
+          [
+            "RUOD"
+          ]
+        ]
+      },
+      "first_difference": null
+    }
+  ],
+  "limitations": [
+    "Six dataset-block orders retain the task order within each domain; these are not training seeds.",
+    "Lower caps are exploratory; a forced split below 150 is not a violation of the original 150 threshold.",
+    "Changed grouping does not establish AP gain, harmful interference, or an optimal cap.",
+    "After the first differing decision each method uses its own mapping history.",
+    "The nearest predicate is strict <; diameter is inclusive <=. Report any exact-boundary distances.",
+    "No validation/test AP was used for threshold exploration."
+  ]
+}
