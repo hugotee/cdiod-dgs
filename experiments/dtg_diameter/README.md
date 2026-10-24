@@ -119,7 +119,10 @@ python -m unittest discover -s tests -p test_dgs_diameter_controls.py -v
 
 `check_diameter_controls_cpu.py --repo ... --stats ... --output-dir ...`
 checks the three strategies against the actual SVD predictor with existing task
-statistics; it never constructs a detector or launches training.
+statistics; it never constructs a detector or launches training. The three
+methods passed this actual-predictor check on the school server using source
+`7ffc540`; all recorded min distances and before/after diameters matched offline
+values exactly. Evidence is under `diameter_controls_20261024/runtime_predictor/`.
 
 ## Online record and constraint switches
 

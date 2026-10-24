@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "detector_built": false,
+  "training_started": false,
+  "source_commit": "7ffc540abf82ed072ff27e70a75b7d18a5425414",
+  "cases": [
+    {
+      "method": "baseline",
+      "nearest_threshold": 150,
+      "cap": null,
+      "groups": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "max_distance_error": 0.0,
+      "passed": true
+    },
+    {
+      "method": "nearest_control",
+      "nearest_threshold": 75.0,
+      "cap": null,
+      "groups": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "max_distance_error": 0.0,
+      "passed": true
+    },
+    {
+      "method": "diameter_rule",
+      "nearest_threshold": 150,
+      "cap": 75.0,
+      "groups": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "max_distance_error": 0.0,
+      "passed": true
+    }
+  ]
+}
