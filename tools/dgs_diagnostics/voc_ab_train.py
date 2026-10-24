@@ -13,6 +13,7 @@ import time
 
 import torch
 from mmengine.config import Config
+from mmengine.dist import is_main_process
 from mmengine.hooks import Hook
 from mmengine.model import is_model_wrapper
 from mmengine.runner import Runner, set_random_seed
@@ -20,7 +21,9 @@ from mmdet.registry import HOOKS
 from mmdet.utils import register_all_modules
 
 
-def write_json(path, value):
+def write_json(path, value, rank_specific=False):
+    if not rank_specific and not is_main_process():
+        return
     path = Path(path)
     temporary = path.with_suffix(path.suffix+'.tmp')
     temporary.write_text(json.dumps(value, indent=2, allow_nan=False)+'\n')
@@ -48,6 +51,8 @@ class VOCDiagnosticAuditHook(Hook):
         return runner.model.module if is_model_wrapper(runner.model) else runner.model
 
     def _snapshot(self, runner, label):
+        if not is_main_process():
+            return
         model = self._model(runner)
         directory = Path(runner.work_dir)/'diagnostic_states'
         directory.mkdir(exist_ok=True)
@@ -63,9 +68,19 @@ class VOCDiagnosticAuditHook(Hook):
         info = snapshot_model(model, target, metadata)
         write_json(directory/f'{label}.json', dict(metadata, **info))
 
+    def after_load_checkpoint(self, runner, checkpoint):
+        if runner.cfg.resume:
+            # Retain historical microbatch indices while accounting for the
+            # new per-rank dataloader length. Epoch-based LR state is unchanged.
+            meta = checkpoint['meta']
+            runner.train_loop._max_iters = meta['iter'] + (
+                runner.max_epochs-meta['epoch'])*len(runner.train_dataloader)
+
     def before_train(self, runner):
-        if runner.world_size != 1:
-            raise RuntimeError('This diagnostic protocol fixes one GPU and accumulation=2')
+        batch = runner.cfg.train_dataloader.batch_size
+        accumulation = runner.cfg.optim_wrapper.accumulative_counts
+        if runner.world_size not in [1, 2] or batch*accumulation*runner.world_size != 4:
+            raise RuntimeError('VOC diagnostic requires nominal effective batch4')
         model = self._model(runner)
         # Four-task VOC labels, rather than the built-in 5/10/13-task lookup.
         # This is used only for routing accuracy counters, never routing choices.
@@ -76,15 +91,39 @@ class VOCDiagnosticAuditHook(Hook):
         self.sample_count = 0
         self.paths = []
         audit = dict(world_size=runner.world_size, per_gpu_batch=runner.cfg.train_dataloader.batch_size,
+                     rank=runner.rank, local_rank=int(os.environ.get('LOCAL_RANK', '0')),
+                     physical_gpus=runner.cfg.diagnostic_protocol.gpu_ids,
                      accumulation=runner.cfg.optim_wrapper.accumulative_counts,
                      nominal_effective_batch=runner.cfg.train_dataloader.batch_size *
-                                             runner.cfg.optim_wrapper.accumulative_counts,
+                                             runner.cfg.optim_wrapper.accumulative_counts * runner.world_size,
                      microbatches_per_epoch=len(runner.train_dataloader),
                      max_epochs=runner.max_epochs, max_microbatches=runner.max_iters,
                      resume=bool(runner.cfg.resume), source_checkpoint=runner.cfg.load_from,
                      task_mapping=model.domain_predictor.task_id_mapping,
                      total_parameters=sum(p.numel() for p in model.parameters()),
                      trainable_parameters=sum(p.numel() for p in model.parameters() if p.requires_grad))
+        if runner.cfg.resume:
+            saved = torch.load(runner.cfg.load_from, map_location='cpu')
+            actual = model.state_dict()
+            keys = [key for key in saved['state_dict'] if 'lora_' in key]
+            if not keys or not all(torch.equal(actual[key].cpu(), saved['state_dict'][key]) for key in keys):
+                raise RuntimeError('Resumed LoRA weights differ; group initialization must be skipped')
+            restored = runner.optim_wrapper.state_dict()
+            if restored['loss_scaler'] != saved['optimizer']['loss_scaler']:
+                raise RuntimeError('AMP state differs after recovery')
+            steps = lambda value: [float(state['step']) for state in value['state'].values() if 'step' in state]
+            if steps(restored) != steps(saved['optimizer']):
+                raise RuntimeError('Optimizer steps differ after recovery')
+            if [item.state_dict() for item in runner.param_schedulers] != saved['param_schedulers']:
+                raise RuntimeError('LR scheduler state differs after recovery')
+            if runner.epoch != saved['meta']['epoch'] or runner.iter != saved['meta']['iter']:
+                raise RuntimeError('Epoch/iteration state differs after recovery')
+            audit.update(lora_tensors_verified=len(keys), optimizer_restored=True,
+                         amp_restored=True, scheduler_restored=True,
+                         restored_epoch=runner.epoch, restored_iteration=runner.iter)
+            del actual, saved, restored
+        write_json(Path(runner.work_dir)/f'runtime_audit_iter{runner.iter}_rank{runner.rank}.json',
+                   audit, rank_specific=True)
         write_json(Path(runner.work_dir)/f'runtime_audit_iter{runner.iter}.json', audit)
         self._snapshot(runner, 'base')
         if torch.cuda.is_available():
@@ -108,11 +147,18 @@ class VOCDiagnosticAuditHook(Hook):
             self.fingerprint.update(tensor.contiguous().numpy().tobytes())
             self.sample_count += 1
         if self.sample_count == 32:
-            write_json(Path(runner.work_dir)/'first32_input_fingerprint.json',
-                       dict(images=self.paths, sha256=self.fingerprint.hexdigest(),
-                            excludes_labels_because_branch_class_spaces_differ=True))
+            value = dict(images=self.paths, sha256=self.fingerprint.hexdigest(), rank=runner.rank,
+                         excludes_labels_because_branch_class_spaces_differ=True)
+            suffix = f'_iter{self.initial_iter}' if self.initial_iter else ''
+            write_json(Path(runner.work_dir)/f'first32_input_fingerprint_rank{runner.rank}{suffix}.json',
+                       value, rank_specific=True)
+            path = Path(runner.work_dir)/'first32_input_fingerprint.json'
+            if not path.exists():
+                write_json(path, value)
 
     def after_train_iter(self, runner, batch_idx, data_batch=None, outputs=None):
+        if not is_main_process():
+            return
         if runner.iter < 4 or (runner.iter+1) % 50 == 0:
             loss = float(runner.message_hub.get_scalar('train/loss').current())
             if not math.isfinite(loss):
@@ -149,7 +195,7 @@ def main():
     import projects.DGS.dgs
     torch.set_num_threads(4)
     cfg = Config.fromfile(sys.argv[1])
-    cfg.launcher = 'none'
+    cfg.launcher = 'pytorch' if int(os.environ.get('WORLD_SIZE', '1')) > 1 else 'none'
     if cfg.resume:
         # On same-phase recovery, retain trained student weights and optimizer.
         for hook in cfg.custom_hooks:

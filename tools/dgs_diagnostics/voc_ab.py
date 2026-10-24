@@ -206,9 +206,10 @@ def run(args):
     lock = (root/'driver.lock').open('a+')
     fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
     protocol = json.loads((root/'protocol.json').read_text())
-    if not json.loads((root/'setup_check.json').read_text())['passed']:
+    check_file = 'setup_check_dual.json' if len(args.gpus) == 2 else 'setup_check.json'
+    if not json.loads((root/check_file).read_text())['passed']:
         raise RuntimeError('CPU setup checks must pass before training')
-    if protocol['gpu_ids'] != [args.gpu]:
+    if protocol['gpu_ids'] != args.gpus:
         raise RuntimeError('GPU assignment must match the prepared protocol')
     current_commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip()
     if current_commit != protocol['source_commit']:
@@ -247,7 +248,8 @@ def run(args):
             reference_hash = source_hash
             write_json(directory/'branch_origin.json', dict(
                 checkpoint=cfg.load_from, sha256=source_hash))
-        gpu_idle(args.gpu)
+        for gpu in args.gpus:
+            gpu_idle(gpu)
         if shutil.disk_usage(root).free < 8*2**30:
             raise RuntimeError('Insufficient disk space for snapshots and checkpoints')
         # Same-phase recovery is explicit and never changes batch or LR.
@@ -258,19 +260,26 @@ def run(args):
                 raise RuntimeError('Final weights exist without a stage marker; inspect evaluation before recovery')
             cfg.resume = True
             cfg.load_from = str(latest)
+            retained = plan.get('migration_resume_checkpoint')
+            if retained and int(latest.stem.split('_')[-1]) == plan['migration_resume_epoch']:
+                cfg.load_from = retained
             active_config = directory/'resume_config.py'
             cfg.dump(str(active_config))
         else:
             active_config = Path(plan['config'])
-        command = [sys.executable, str(args.repo/'tools/dgs_diagnostics/voc_ab_train.py'), str(active_config)]
-        log = directory/'train.log'
+        entry = str(args.repo/'tools/dgs_diagnostics/voc_ab_train.py')
+        command = [sys.executable, entry, str(active_config)]
+        if len(args.gpus) == 2:
+            command = [sys.executable, '-m', 'torch.distributed.run', '--nproc_per_node=2',
+                       f'--master_port={args.port}', entry, str(active_config)]
+        log = directory/('train.dual.log' if len(args.gpus) == 2 else 'train.log')
         status('train', name=plan['name'], task_id=plan['task_id'], phase_dir=str(directory),
-               command=command, log=str(log), gpu_ids=[args.gpu])
+               command=command, log=str(log), gpu_ids=args.gpus)
         with log.open('a') as stream:
             CHILD = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=stream,
                                      stderr=subprocess.STDOUT, start_new_session=True)
             status('train', name=plan['name'], task_id=plan['task_id'], phase_dir=str(directory),
-                   child_pid=CHILD.pid, log=str(log), gpu_ids=[args.gpu])
+                   child_pid=CHILD.pid, log=str(log), gpu_ids=args.gpus)
             code = CHILD.wait()
         CHILD = None
         if code:
@@ -287,11 +296,18 @@ def run(args):
                for name in ['A_original', 'B_diameter75']]
     fingerprints = [json.loads((root/'branches'/name/'first32_input_fingerprint.json').read_text())['sha256']
                     for name in ['A_original', 'B_diameter75']]
+    rank_pairing = {}
+    if len(args.gpus) == 2:
+        for rank in range(2):
+            values = [json.loads((root/'branches'/name/f'first32_input_fingerprint_rank{rank}.json').read_text())['sha256']
+                      for name in ['A_original', 'B_diameter75']]
+            rank_pairing[str(rank)] = values[0] == values[1]
     write_json(root/'comparison.json', dict(A=a, B=b, single_seed=True,
         origin_checkpoints_equal=origins[0] == origins[1],
         first32_augmented_inputs_equal=fingerprints[0] == fingerprints[1],
+        rank_input_pairing=rank_pairing,
         delta_AP_points_B_minus_A={key:100*(b[key]-a[key]) for key in ['old15_ap', 'new5_ap', 'all20_ap']}))
-    if origins[0] != origins[1] or fingerprints[0] != fingerprints[1]:
+    if origins[0] != origins[1] or fingerprints[0] != fingerprints[1] or not all(rank_pairing.values()):
         raise RuntimeError('Pairing audit failed; inspect comparison.json before interpreting AP')
     status('complete', comparison=str(root/'comparison.json'))
 
@@ -303,11 +319,18 @@ def main():
     parser.add_argument('--root', type=Path, required=True)
     parser.add_argument('--stats', type=Path, required=True)
     parser.add_argument('--gpu', type=int, default=3)
+    parser.add_argument('--gpus', type=int, nargs='+')
+    parser.add_argument('--port', type=int, default=29583)
     args = parser.parse_args()
+    args.gpus = args.gpus or [args.gpu]
+    if len(args.gpus) not in [1, 2] or len(set(args.gpus)) != len(args.gpus):
+        raise ValueError('Use one GPU or two distinct GPUs')
+    if args.mode == 'prepare' and len(args.gpus) != 1:
+        raise ValueError('Use the recorded migration procedure to amend an existing protocol')
     args.repo, args.root, args.stats = (value.resolve() for value in [args.repo, args.root, args.stats])
     os.chdir(args.repo)
     sys.path.insert(0, str(args.repo))
-    os.environ.update(CUDA_VISIBLE_DEVICES='' if args.mode == 'prepare' else str(args.gpu),
+    os.environ.update(CUDA_VISIBLE_DEVICES='' if args.mode == 'prepare' else ','.join(map(str, args.gpus)),
         OMP_NUM_THREADS='4', MKL_NUM_THREADS='4', TOKENIZERS_PARALLELISM='false',
         HF_HUB_OFFLINE='1', TRANSFORMERS_OFFLINE='1', PYTHONUNBUFFERED='1',
         TMPDIR=str(args.repo.parent/'tmp'), XDG_CACHE_HOME=str(args.repo.parent/'.cache'),
@@ -316,9 +339,11 @@ def main():
     if args.mode == 'prepare':
         prepare(args)
     elif args.mode == 'launch':
-        gpu_idle(args.gpu)
+        for gpu in args.gpus:
+            gpu_idle(gpu)
         command = [sys.executable, str(Path(__file__).resolve()), 'run', '--repo', str(args.repo),
-                   '--root', str(args.root), '--stats', str(args.stats), '--gpu', str(args.gpu)]
+                   '--root', str(args.root), '--stats', str(args.stats), '--gpus',
+                   *map(str, args.gpus), '--port', str(args.port)]
         with (args.root/'driver.log').open('a') as stream:
             process = subprocess.Popen(command, stdin=subprocess.DEVNULL, stdout=stream,
                                        stderr=subprocess.STDOUT, start_new_session=True)

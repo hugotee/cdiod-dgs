@@ -56,3 +56,22 @@ This first intervention is equivalent to forcing task4 independent. It checks
 whether this sharing decision is useful, not whether cap75 is generally optimal.
 B has an extra group. A positive result needs capacity-matched controls, other
 split points/orders and multiple seeds before supporting a method-level claim.
+
+## User-authorized GPU migration, 2026-10-25
+
+The user subsequently requested GPUs 1 and 3. Retain completed task1 and stop
+task2 at a full epoch checkpoint, preserving optimizer, scheduler and AMP state.
+`stop_voc_at_checkpoint.py` validates ownership/command before signaling only
+the experiment driver and keeps a separate copy of the recovery checkpoint.
+`migrate_voc_dual.py` archives the initial protocol/configs and records an
+amendment: 2 GPUs x batch2 x accumulation1 = effective batch4. Epoch budgets and
+LR policies are unchanged; both future A/B branches use this two-GPU setting.
+The existing prefix contains a single-GPU history, so this is not bitwise
+continuation of its data/augmentation stream.
+
+The audit verifies LoRA tensors, optimizer steps, AMP scaler, LR scheduler and
+epoch/iteration state on each rank. Historical iteration counters are retained;
+remaining iteration counts are recomputed from the new per-rank dataloader.
+Only rank0 saves snapshots/metrics; each rank writes its own input-pairing audit.
+`check_voc_dual_cpu.py` checks A/B input pairing with two actual Gloo CPU ranks.
+Use `voc_ab.py launch ... --gpus 1 3 --port 29583` only after these checks pass.
