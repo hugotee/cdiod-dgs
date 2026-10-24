@@ -6,6 +6,7 @@ import yaml
 from mmengine.logging import MMLogger
 
 from .adaptive_domain_predictor import AdaptiveDomainPredictor_Dist, gather_img_emebedding
+from .grouping_diagnostics import candidate_group_record, append_grouping_record
 
 # ---------------------------------------------------------------------------
 # Utility function
@@ -183,6 +184,28 @@ class AdaptiveDomainPredictor_SVD(AdaptiveDomainPredictor_Dist):
             distances_tensor = torch.stack(distances)
             logger.info(f'distances with all seen tasks: {distances_tensor}')
             min_dist, closest_task_id = torch.min(distances_tensor, dim=0)
+
+            # Opt-in observation only: keep the original branch below intact.
+            trace_path = getattr(self.domain_predictor_cfg, 'grouping_trace_path', None)
+            if trace_path:
+                def pair_distance(a, b):
+                    _, _, da = self.get_task_distribution(a)
+                    _, _, db = self.get_task_distribution(b)
+                    pairs = zip(da, db) if self.multilevel else [(da, db)]
+                    values = [(torch.distributions.kl.kl_divergence(x, y)
+                               + torch.distributions.kl.kl_divergence(y, x))/2
+                              for x, y in pairs]
+                    return torch.stack(values).mean().item()
+
+                record = candidate_group_record(
+                    cur_task_id, self.task_id_mapping,
+                    distances_tensor.tolist(), pair_distance, self.expand_th)
+                record['original_accepts'] = bool(min_dist < self.expand_th)
+                record['accepts'] = record['original_accepts']
+                record['task_names'] = list(self.seen_tasks)
+                record['max_group_kl'] = None
+                if not dist.is_initialized() or dist.get_rank() == 0:
+                    append_grouping_record(trace_path, record)
 
             if min_dist < self.expand_th:
                 task_group_id = self.task_id_mapping[closest_task_id.item()]
