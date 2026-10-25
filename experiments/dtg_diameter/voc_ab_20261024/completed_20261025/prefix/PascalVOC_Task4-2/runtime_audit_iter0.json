@@ -1,0 +1,17 @@
+{
+  "world_size": 1,
+  "per_gpu_batch": 2,
+  "accumulation": 2,
+  "nominal_effective_batch": 4,
+  "microbatches_per_epoch": 1720,
+  "max_epochs": 12,
+  "max_microbatches": 20640,
+  "resume": false,
+  "source_checkpoint": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/prefix/PascalVOC_Task4-1/epoch_12.pth",
+  "task_mapping": {
+    "0": 0,
+    "1": 0
+  },
+  "total_parameters": 174288406,
+  "trainable_parameters": 688128
+}

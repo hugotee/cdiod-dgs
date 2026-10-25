@@ -1,0 +1,12 @@
+{
+  "stage": "train",
+  "epoch": 12,
+  "iteration": 16550,
+  "max_iterations": 16560,
+  "max_epochs": 12,
+  "completed_microbatches": 16550,
+  "elapsed_seconds": 9384.881378884998,
+  "seconds_per_microbatch": 0.5670623189658609,
+  "latest_loss": 2.6189045906066895,
+  "peak_reserved_mib": 10126.0
+}

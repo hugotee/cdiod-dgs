@@ -1,0 +1,16 @@
+{
+  "world_size": 1,
+  "per_gpu_batch": 2,
+  "accumulation": 2,
+  "nominal_effective_batch": 4,
+  "microbatches_per_epoch": 1380,
+  "max_epochs": 12,
+  "max_microbatches": 16560,
+  "resume": false,
+  "source_checkpoint": "/home/data/dq/cdiod-dgs/weights/groundingdino_swint_ogc_mmdet-822d7e9d.pth",
+  "task_mapping": {
+    "0": 0
+  },
+  "total_parameters": 173665814,
+  "trainable_parameters": 753664
+}

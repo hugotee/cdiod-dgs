@@ -1,0 +1,21 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "world_size": 2,
+  "nominal_effective_batch": 4,
+  "common_prefix_path_equal": true,
+  "all_rank_pairing_passed": true,
+  "ranks": [
+    {
+      "rank": 0,
+      "passed": true,
+      "first32_sha256": "1a0ad750ede300291811751b60a782913f4e25d11939f7ffdd261d449eda5c4b"
+    },
+    {
+      "rank": 1,
+      "passed": true,
+      "first32_sha256": "a7531361a97de1221214e481023faf9b259f484d59df4d5ff9b5a51f1b8bd154"
+    }
+  ],
+  "single_gpu_setup_check_retained": true
+}

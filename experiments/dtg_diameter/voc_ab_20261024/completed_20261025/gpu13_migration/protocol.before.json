@@ -1,0 +1,136 @@
+{
+  "created_at": "2026-10-24T21:15:35.939510+08:00",
+  "source_commit": "7e5cfbfe6df0dc106e7c7dd6186f4b5c65e80d7e",
+  "tasks": [
+    "PascalVOC_Task4-1",
+    "PascalVOC_Task4-2",
+    "PascalVOC_Task4-3",
+    "PascalVOC_Task4-4"
+  ],
+  "seed": 1498185232,
+  "gpu_ids": [
+    3
+  ],
+  "effective_batch": 4,
+  "microbatch": 2,
+  "accumulation": 2,
+  "input_sha256": {
+    "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/frozen_stats/PascalVOC_Task4-1.pt": "52a20c2b2c553318fe8c53db3850bf5d529d80beb81c06a6618c02f1eefcdd13",
+    "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/frozen_stats/PascalVOC_Task4-2.pt": "baeb63c85942f73a772dd5070acec16783577abbf7159a31bd015ae77c3883f5",
+    "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/frozen_stats/PascalVOC_Task4-3.pt": "e27c66f6f67ceb330d787d0fcce08829281d292b05e89fd4d5d7f5372cd57d05",
+    "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/frozen_stats/PascalVOC_Task4-4.pt": "c50ff6507f09135eeb05852fa24607404da97bf5810e89e4d9425026d5289635",
+    "/home/data/dq/cdiod-dgs/data/CDIOD/PascalVOC/train/annotations_without_background_Task4-1.json": "bf557c3414d23f212c0588ad61a0ecb332aa33426c3e882723c99102c138602a",
+    "/home/data/dq/cdiod-dgs/data/CDIOD/PascalVOC/train/annotations_without_background_Task4-2.json": "8a1d5638295ae831e72577425e2b920e6b3864ee9d8e6b493680eaae573203f4",
+    "/home/data/dq/cdiod-dgs/data/CDIOD/PascalVOC/train/annotations_without_background_Task4-3.json": "1c7281df2df58828c43af6bf49002c76e344c1df8c7d87b85da5a3445071b604",
+    "/home/data/dq/cdiod-dgs/data/CDIOD/PascalVOC/train/annotations_without_background_Task4-4.json": "fbccc3fb840f6fd079b552c87269a83d5e1a594c311ac10ab5cdbca158f04411",
+    "/home/data/dq/cdiod-dgs/data/CDIOD/PascalVOC/valid/annotations_without_background.json": "31254ead511b0a6beb5199e5b78990991ca3beca6bf0ccbfc72328c95373cc0b",
+    "/home/data/dq/cdiod-dgs/weights/groundingdino_swint_ogc_mmdet-822d7e9d.pth": "822d7e9db9ce6ff2119b72dc6e78606a1b0a2c307234798adf0cab50f1b424e3"
+  },
+  "plans": [
+    {
+      "name": "prefix1",
+      "task_id": 0,
+      "cap": null,
+      "directory": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/prefix/PascalVOC_Task4-1",
+      "mapping": {
+        "0": 0
+      },
+      "training_policy": "new_group",
+      "train_images": 2759,
+      "training_prompt_classes": 5,
+      "microbatches_per_epoch": 1380,
+      "epochs": 12,
+      "lr": 0.0008,
+      "config": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/prefix/PascalVOC_Task4-1/train_config.py",
+      "config_sha256": "22e16b1c2cb6b29730510d1c12bcefa34bb9d1d8a6d3f6144e44aa87e1783814"
+    },
+    {
+      "name": "prefix2",
+      "task_id": 1,
+      "cap": null,
+      "directory": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/prefix/PascalVOC_Task4-2",
+      "mapping": {
+        "0": 0,
+        "1": 0
+      },
+      "training_policy": "consolidation",
+      "train_images": 3440,
+      "training_prompt_classes": 10,
+      "microbatches_per_epoch": 1720,
+      "epochs": 12,
+      "lr": 0.0005,
+      "config": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/prefix/PascalVOC_Task4-2/train_config.py",
+      "config_sha256": "f74a3f298549dcc830108d682bfc117075ee2b46ebba3991f646c915e7e9a117"
+    },
+    {
+      "name": "prefix3",
+      "task_id": 2,
+      "cap": null,
+      "directory": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/prefix/PascalVOC_Task4-3",
+      "mapping": {
+        "0": 0,
+        "1": 0,
+        "2": 0
+      },
+      "training_policy": "consolidation",
+      "train_images": 8672,
+      "training_prompt_classes": 15,
+      "microbatches_per_epoch": 4336,
+      "epochs": 12,
+      "lr": 0.0005,
+      "config": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/prefix/PascalVOC_Task4-3/train_config.py",
+      "config_sha256": "003e27a7e8694f5c0c58cedebe62b1ec54531cec0788d16c3365e6b93d031b52"
+    },
+    {
+      "name": "A_original",
+      "task_id": 3,
+      "cap": null,
+      "directory": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original",
+      "mapping": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "training_policy": "consolidation",
+      "train_images": 2147,
+      "training_prompt_classes": 20,
+      "microbatches_per_epoch": 1074,
+      "epochs": 12,
+      "lr": 0.0005,
+      "config": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/train_config.py",
+      "config_sha256": "e97f8ae41929b7bbf0a1cc090a83eadd03aa82eea6acc9bbac106a5bfd8e4c59"
+    },
+    {
+      "name": "B_diameter75",
+      "task_id": 3,
+      "cap": 75,
+      "directory": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/B_diameter75",
+      "mapping": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 1
+      },
+      "training_policy": "new_group",
+      "train_images": 2147,
+      "training_prompt_classes": 5,
+      "microbatches_per_epoch": 1074,
+      "epochs": 12,
+      "lr": 0.0008,
+      "config": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/B_diameter75/train_config.py",
+      "config_sha256": "0ab3bcc8a5fc243e3a009354d3fa1ae48d606eb39d200ec1a43979d2c5ce8235"
+    }
+  ],
+  "training_started": false,
+  "evaluation": "full VOC validation, fixed 20-class text, normal router, AP@[.50:.95]",
+  "limitations": [
+    "Single seed, single-domain diagnostic; not the full CDIOD benchmark.",
+    "Cap75 is exploratory, selected using training-statistic grouping, not validation AP.",
+    "A/B preserves DGS branch policies: LR, initialization, prompts, distillation and merging differ.",
+    "B adds one group; AP gain alone does not establish better split selection at equal capacity.",
+    "Known feature-distillation type mismatch is retained from the reproduction code.",
+    "Nominal effective batch4; final accumulation window can have fewer images.",
+    "Seed and first32 augmented input hashes are recorded; CUDA arithmetic is not bitwise deterministic."
+  ]
+}

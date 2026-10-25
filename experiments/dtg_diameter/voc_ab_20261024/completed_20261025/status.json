@@ -1,0 +1,7 @@
+{
+  "stage": "complete",
+  "updated_at": "2026-10-25T11:34:29.341307+08:00",
+  "driver_pid": 8424,
+  "training_started": true,
+  "comparison": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/comparison.json"
+}

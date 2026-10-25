@@ -1,0 +1,23 @@
+{
+  "timestamp": "2026-10-25T00:38:47.715839+08:00",
+  "authorization": "User explicitly requested GPUs 1 and 3 on 2026-10-25",
+  "original_source_commit": "7e5cfbfe6df0dc106e7c7dd6186f4b5c65e80d7e",
+  "source_commit": "b897608981bf59061a93f9dfb46c7a16a7b65645",
+  "old_gpu_ids": [
+    3
+  ],
+  "new_gpu_ids": [
+    1,
+    3
+  ],
+  "old_accumulation": 2,
+  "new_accumulation": 1,
+  "per_gpu_batch": 2,
+  "effective_batch_before": 4,
+  "effective_batch_after": 4,
+  "resume_checkpoint": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/gpu13_migration/epoch_2.pth",
+  "checkpoint_sha256": "ebcb27b9ea0dea3e0bd25ea6f36779ee8d4c92efac523533b41bf0d514cd8359",
+  "completed_epoch": 2,
+  "historical_iteration": 3440,
+  "note": "Topology, data shards and augmentation streams change; this is not bitwise continuation. Both A/B branches use identical two-GPU settings."
+}

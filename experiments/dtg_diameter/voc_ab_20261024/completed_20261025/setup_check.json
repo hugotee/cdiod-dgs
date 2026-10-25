@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "validation_images": 3422,
+  "fixed_prompt_classes": 20,
+  "common_prefix_path_equal": true,
+  "first32_augmented_inputs_equal": true,
+  "fingerprint": "3e8f7d6a21587c74166ea7628cfbcb4428b504c9c056eff2928f89a661df27f0",
+  "actual_hook_order_verified": true,
+  "training_started": false
+}

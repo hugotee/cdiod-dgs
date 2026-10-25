@@ -1,0 +1,24 @@
+{
+  "cpu_only": true,
+  "training_started": false,
+  "cases": {
+    "A_original": {
+      "lora_parameters": 688128,
+      "lora_tensors": 48,
+      "non_lora_new_tensors": {},
+      "old_lora_equal_prefix": false,
+      "all_shared_frozen_non_lora_tensors_unchanged": true,
+      "full20_metric": 0.641
+    },
+    "B_diameter75": {
+      "lora_parameters": 1376256,
+      "lora_tensors": 96,
+      "non_lora_new_tensors": {
+        "dn_query_generator.label_embedding.weight": 65536
+      },
+      "old_lora_equal_prefix": true,
+      "all_shared_frozen_non_lora_tensors_unchanged": true,
+      "full20_metric": 0.649
+    }
+  }
+}

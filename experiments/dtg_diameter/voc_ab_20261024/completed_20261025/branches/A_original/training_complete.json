@@ -1,0 +1,7 @@
+{
+  "completed": true,
+  "train_and_validation_seconds": 5740.401832579009,
+  "final_epoch": 12,
+  "final_iteration": 6444,
+  "peak_reserved_mib": 17616.0
+}

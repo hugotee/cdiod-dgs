@@ -75,3 +75,15 @@ remaining iteration counts are recomputed from the new per-rank dataloader.
 Only rank0 saves snapshots/metrics; each rank writes its own input-pairing audit.
 `check_voc_dual_cpu.py` checks A/B input pairing with two actual Gloo CPU ranks.
 Use `voc_ab.py launch ... --gpus 1 3 --port 29583` only after these checks pass.
+
+## Completed result
+
+All five training stages completed on 2026-10-25 at 11:34 Asia/Shanghai using
+training source `b897608`, including the recorded initial single-GPU prefix.
+Normal-router AP points (A vs B): old15 63.83 vs65.06, new5 64.93 vs64.52,
+all20 64.11 vs64.93. B-A all20 is +0.82 points for this single seed/split.
+Both origin checkpoint and per-rank first32 input pairing audits passed.
+See [Chinese result report](结果汇总.md) and `completed_20261025/` for compact
+metrics, configs, input hashes, parameter breakdown and checkpoint audits.
+Large weights, predictions and dataset annotations remain on the server.
+No additional training was queued and GPUs1/3 have been released.
