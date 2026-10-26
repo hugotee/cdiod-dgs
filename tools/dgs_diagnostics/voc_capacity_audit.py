@@ -103,11 +103,13 @@ class VOCCapacityKDAuditHook(VOCFeatureKDAuditHook):
         self._write_capacity()
 
     def _prediction_check(self, data_batch):
-        """Compare actual detector predictions with rank16 slices, before updates.
+        """Compare with the original rank16 function, padded to the same shape.
 
         Only forward outputs are temporarily replaced; parameters, DDP buckets,
-        optimizer state and random state are retained. Full precision avoids AMP
-        rank-dependent rounding obscuring the initialization check.
+        optimizer state and random state are retained. Native rank16 GEMMs can
+        perturb proposal/top-k selection in FP32 (observed <=0.067 pixel), even
+        though effective BA is exactly equal. Zero-padding the old function to
+        rank32 keeps the GEMM shapes fixed and isolates the function check.
         """
         from projects.DGS.dgs.layers.modules.group_lora import LoraLinearRep
         import random
@@ -127,8 +129,9 @@ class VOCCapacityKDAuditHook(VOCFeatureKDAuditHook):
                     expanded = self.model.test_step(copy.deepcopy(data_batch))
                     def old_forward(module, inputs, output):
                         task = module.task_ids[-1] if len(module.lora_B) > 1 else module.task_ids[0]
-                        a = module.lora_A[str(task)][:16]
-                        b = module.lora_B[str(task)][:, :16]
+                        a = module.lora_A[str(task)].clone()
+                        a[16:] = 0
+                        b = module.lora_B[str(task)]
                         x = inputs[0]
                         return ((module.lora_dropout(x) @ a.T @ b.T)*module.scaling).to(x.dtype)
                     for module in self.model.modules():
@@ -182,7 +185,8 @@ class VOCCapacityKDAuditHook(VOCFeatureKDAuditHook):
                     encoder_maximum_absolute_errors=encoder_errors,
                     identical_label_order=identical_order,
                     detection_comparison='one-to-one class/geometry matching; original tolerances',
-                    mode='full-detector FP32 prediction, rank32 versus original rank16 slices')
+                    reference_embedding='original rank16 blocks plus zero A/B tails, rank32 GEMM shape',
+                    mode='full-detector FP32 function check with identical GEMM shapes')
         finally:
             for handle in handles:
                 handle.remove()
