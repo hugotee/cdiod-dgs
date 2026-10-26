@@ -1,0 +1,20 @@
+{
+  "checked_date": "2026-10-26",
+  "provider": "GitHub connector read-only",
+  "files": [
+    {
+      "content": "_base_ = './dgs_stage1.py'\n\ndistn_cfg=dict(\n    type='distillation',\n    future_class=False,\n    label_distn=dict(\n        type='threshold_pseudo', # choice = ['topk_pseudo', 'threshold_pseudo', 'adaptive_pseudo']\n        mode='hardlabel', # choice = ['seperate_logits', 'hardlabel', 'mixed_logits']\n        sigma=0.4, label_iou_th=0.7,\n    ),\n    feat_distn=dict(\n        type='inter-intra', # choice = ['opt1', 'foreground', 'pseudo guided', 'inter-intra'']\n        subtype = 'opt1', # choice = ['inter-text', 'inter-query', 'intra', 'q2t_distance', 'all']\n        img_loss=dict(type='L2Loss', loss_weight=3.0, reduction='mean'),\n        text_loss=dict(type='L2Loss', loss_weight=5.0, reduction='mean'),\n    ),        \n    query_distn=dict(\n        type='seperate_queryinit',  # choice = [seperate_queryinit, balanced_queryinit, pseudo_denoising]\n        num_matching_query=900,   \n        num_aux_query=900,\n        # group=5,\n        # noise_scale=0.2\n    ), \n)",
+      "encoding": "utf-8",
+      "sha": "9c5c13106590474c4ea45e62225a23700fe14228",
+      "display_url": "https://github.com/Never-wx/DGS/blob/main/projects/DGS/configs/CDIOD/dgs_stage2.py",
+      "display_title": "dgs_stage2.py"
+    },
+    {
+      "content": "                # loss_dict['enc_ld_loss_iou'] = enc_ld_loss_iou\n                                                            \n        # ===== feat distn loss ===== \n        if self.distn_cfg.feat_distn.type == 'inter-class':       \n            inter_text_loss = None\n            inter_query_loss = None\n            \n            inter_text_loss, inter_query_loss = \\\n                self.inter_feat_distn_single(hidden_states[-1], ori_hidden_states[-1],\n                                            all_layers_matching_cls_scores[-1], all_layers_matching_bbox_preds[-1], \n                                            all_layers_ori_cls_scores[-1], all_layers_ori_bbox_preds[-1], \n                                            memory_text, ori_memory_text, \n                                            batch_pseudo_instances, batch_all_instances, batch_img_metas)\n            \n            if inter_text_loss is not None:\n                loss_dict['inter_text_loss'] = inter_text_loss\n            if inter_query_loss is not None:\n                loss_dict['inter_query_loss'] = inter_query_loss \n\n        return loss_dict",
+      "encoding": "utf-8",
+      "sha": "46a81e68b7b36db3bae7969dc15eb3fbc4680ff5",
+      "display_url": "https://github.com/Never-wx/DGS/blob/main/projects/DGS/dgs/heads/gdino_head_inc_gcd.py",
+      "display_title": "gdino_head_inc_gcd.py"
+    }
+  ]
+}

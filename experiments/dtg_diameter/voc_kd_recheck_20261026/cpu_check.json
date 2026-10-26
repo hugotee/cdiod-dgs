@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "actual_guard_off_before": true,
+  "actual_guard_on_after": true,
+  "both_losses_present": true,
+  "losses": {
+    "inter_text_loss": 0.01270795427262783,
+    "inter_query_loss": 0.002818036125972867
+  },
+  "total_loss_includes_both": true,
+  "student_gradient_norms": [
+    0.024079974740743637,
+    0.0686957910656929
+  ],
+  "teacher_detached": true,
+  "fewer_than_three_pseudo_classes_skips_relations": true,
+  "equations_and_loss_implementation_unchanged": true
+}
