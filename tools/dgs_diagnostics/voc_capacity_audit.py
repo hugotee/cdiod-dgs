@@ -20,7 +20,10 @@ def expand_state(state, seed=314159):
             stem = key.rsplit('.', 1)[0]
             if stem not in extra_a:
                 tail = torch.empty_like(value)
-                torch.nn.init.kaiming_uniform_(tail, a=math.sqrt(5), generator=generator)
+                # Same Kaiming bound as nn.Linear(a=sqrt(5)); support the
+                # server's older nn.init API without touching global RNG state.
+                bound = 1. / math.sqrt(value.shape[1])
+                tail.uniform_(-bound, bound, generator=generator)
                 extra_a[stem] = tail
             result[key] = torch.cat([value, extra_a[stem]], dim=0)
         elif 'lora_B.' in key:
