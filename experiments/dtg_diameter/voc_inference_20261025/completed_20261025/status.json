@@ -1,0 +1,11 @@
+{
+  "stage": "complete",
+  "updated_at": "2026-10-25T16:29:11.585763+08:00",
+  "driver_pid": 46581,
+  "training_started": false,
+  "gpu_ids": [
+    2,
+    3
+  ],
+  "comparison": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_inference_20261025/comparison.json"
+}

@@ -1,0 +1,138 @@
+{
+  "rank": 0,
+  "world_size": 2,
+  "strict_load": true,
+  "checkpoint": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/epoch_12.pth",
+  "case": "A_merged_normal",
+  "forced_group": null,
+  "forced_representative_task": null,
+  "lora_digest": "dff00d30dc2a03247318c526e8aacda03a77d0014d076671bb648f81ec49a983",
+  "lora_tensor_count": 48,
+  "expert_parameter_ids": [
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ],
+    [
+      [
+        "0"
+      ]
+    ]
+  ],
+  "parameters_trainable": 0,
+  "training_started": false,
+  "optimizer_constructed": false,
+  "batch_size": 1,
+  "fp16": false
+}

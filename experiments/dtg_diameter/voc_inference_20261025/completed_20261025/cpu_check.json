@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "cpu_only": true,
+  "training_started": false,
+  "base_student_equals_old": true,
+  "premerge_old_unchanged": true,
+  "premerge_student_trained": true,
+  "actual_merge_matches_saved_parameters": true,
+  "forced_group_to_task_mapping_verified": true,
+  "cases": [
+    {
+      "case": "A_new_fixed0",
+      "strict_load": true,
+      "parameter_ids": [
+        [
+          "0",
+          "3"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "A_merged_normal",
+      "strict_load": true,
+      "parameter_ids": [
+        [
+          "0"
+        ]
+      ],
+      "passed": true
+    },
+    {
+      "case": "B_normal",
+      "strict_load": true,
+      "parameter_ids": [
+        [
+          "0"
+        ],
+        [
+          "3"
+        ]
+      ],
+      "passed": true
+    }
+  ]
+}

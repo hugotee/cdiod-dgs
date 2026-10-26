@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "path": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/frozen_stats/PascalVOC_Task4-1.pt",
+      "sha256": "52a20c2b2c553318fe8c53db3850bf5d529d80beb81c06a6618c02f1eefcdd13",
+      "passed": true
+    },
+    {
+      "path": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/frozen_stats/PascalVOC_Task4-2.pt",
+      "sha256": "baeb63c85942f73a772dd5070acec16783577abbf7159a31bd015ae77c3883f5",
+      "passed": true
+    },
+    {
+      "path": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/frozen_stats/PascalVOC_Task4-3.pt",
+      "sha256": "e27c66f6f67ceb330d787d0fcce08829281d292b05e89fd4d5d7f5372cd57d05",
+      "passed": true
+    },
+    {
+      "path": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/frozen_stats/PascalVOC_Task4-4.pt",
+      "sha256": "c50ff6507f09135eeb05852fa24607404da97bf5810e89e4d9425026d5289635",
+      "passed": true
+    }
+  ]
+}

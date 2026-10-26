@@ -1,0 +1,140 @@
+{
+  "results": {
+    "A_merged_normal": {
+      "old15_ap": 0.6383415381471164,
+      "new5_ap": 0.6492580110450787,
+      "all20_ap": 0.641070656371607,
+      "per_task_ap": {
+        "PascalVOC_Task4-1": 0.584164850650646,
+        "PascalVOC_Task4-2": 0.6340151695628382,
+        "PascalVOC_Task4-3": 0.696844594227865,
+        "PascalVOC_Task4-4": 0.6492580110450787
+      },
+      "route_counts": {
+        "0": 3418,
+        "-1": 4
+      },
+      "reference_check": {
+        "passed": true,
+        "max_ap_error": 0.0
+      },
+      "elapsed_seconds": 517.406030247992,
+      "forced_group": null,
+      "diagnostic_reference": false,
+      "training_started": false
+    },
+    "B_normal": {
+      "old15_ap": 0.6506353009112416,
+      "new5_ap": 0.6451626194605982,
+      "all20_ap": 0.6492671305485807,
+      "per_task_ap": {
+        "PascalVOC_Task4-1": 0.588794234140701,
+        "PascalVOC_Task4-2": 0.6527021593163513,
+        "PascalVOC_Task4-3": 0.7104095092766721,
+        "PascalVOC_Task4-4": 0.6451626194605982
+      },
+      "route_counts": {
+        "1": 465,
+        "0": 2953,
+        "-1": 4
+      },
+      "reference_check": {
+        "passed": true,
+        "max_ap_error": 0.0
+      },
+      "elapsed_seconds": 542.8096658769937,
+      "forced_group": null,
+      "diagnostic_reference": false,
+      "training_started": false
+    },
+    "A_base_fixed0": {
+      "old15_ap": 0.6573319318909848,
+      "new5_ap": 0.5941724263528487,
+      "all20_ap": 0.6415420555064508,
+      "per_task_ap": {
+        "PascalVOC_Task4-1": 0.593701043904222,
+        "PascalVOC_Task4-2": 0.6596799619916462,
+        "PascalVOC_Task4-3": 0.7186147897770861,
+        "PascalVOC_Task4-4": 0.5941724263528487
+      },
+      "route_counts": {
+        "0": 3422
+      },
+      "reference_check": null,
+      "elapsed_seconds": 517.714168311999,
+      "forced_group": 0,
+      "diagnostic_reference": true,
+      "training_started": false
+    },
+    "A_new_fixed0": {
+      "old15_ap": 0.6203805226775013,
+      "new5_ap": 0.62741452997524,
+      "all20_ap": 0.622139024501936,
+      "per_task_ap": {
+        "PascalVOC_Task4-1": 0.5745612071969043,
+        "PascalVOC_Task4-2": 0.6116839754551906,
+        "PascalVOC_Task4-3": 0.6748963853804093,
+        "PascalVOC_Task4-4": 0.62741452997524
+      },
+      "route_counts": {
+        "0": 3422
+      },
+      "reference_check": null,
+      "elapsed_seconds": 517.6262925600022,
+      "forced_group": 0,
+      "diagnostic_reference": true,
+      "training_started": false
+    },
+    "A_merged_fixed0": {
+      "old15_ap": 0.6383710959457872,
+      "new5_ap": 0.6492956684241064,
+      "all20_ap": 0.641102239065367,
+      "per_task_ap": {
+        "PascalVOC_Task4-1": 0.5841115182780647,
+        "PascalVOC_Task4-2": 0.6340444103613707,
+        "PascalVOC_Task4-3": 0.6969573591979262,
+        "PascalVOC_Task4-4": 0.6492956684241064
+      },
+      "route_counts": {
+        "0": 3422
+      },
+      "reference_check": null,
+      "elapsed_seconds": 507.56617080899014,
+      "forced_group": 0,
+      "diagnostic_reference": true,
+      "training_started": false
+    },
+    "B_old_fixed0": {
+      "old15_ap": 0.6573319318909848,
+      "new5_ap": 0.5941724263528487,
+      "all20_ap": 0.6415420555064508,
+      "per_task_ap": {
+        "PascalVOC_Task4-1": 0.593701043904222,
+        "PascalVOC_Task4-2": 0.6596799619916462,
+        "PascalVOC_Task4-3": 0.7186147897770861,
+        "PascalVOC_Task4-4": 0.5941724263528487
+      },
+      "route_counts": {
+        "0": 3422
+      },
+      "reference_check": null,
+      "elapsed_seconds": 497.4504161809891,
+      "forced_group": 0,
+      "diagnostic_reference": true,
+      "training_started": false
+    }
+  },
+  "training_started": false,
+  "A_training_delta_AP": {
+    "old15_ap": -3.69514092134835,
+    "new5_ap": 3.324210362239133,
+    "all20_ap": -1.9403031004514792
+  },
+  "A_merge_delta_AP": {
+    "old15_ap": 1.7990573268285903,
+    "new5_ap": 2.18811384488663,
+    "all20_ap": 1.8963214563430975
+  },
+  "B_old_fixed_minus_normal_AP": 0.6696630979743268,
+  "forced_routing_is_task_informed_diagnostic": true
+}

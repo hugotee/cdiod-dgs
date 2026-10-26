@@ -1,0 +1,162 @@
+{
+  "rank": 1,
+  "world_size": 2,
+  "strict_load": true,
+  "checkpoint": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/diagnostic_states/new_premerge.pth",
+  "case": "A_new_fixed0",
+  "forced_group": 0,
+  "forced_representative_task": 0,
+  "lora_digest": "607a8328cbf2d9a213ef40f21d6bf39a6d156468adf806a0b8f288e1b9419cff",
+  "lora_tensor_count": 96,
+  "expert_parameter_ids": [
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ],
+    [
+      [
+        "0",
+        "3"
+      ]
+    ]
+  ],
+  "parameters_trainable": 0,
+  "training_started": false,
+  "optimizer_constructed": false,
+  "batch_size": 1,
+  "fp16": false
+}

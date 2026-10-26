@@ -1,0 +1,89 @@
+{
+  "checked_at": "2026-10-26T12:58:58.893160+08:00",
+  "source_commit": "708bd3972855eca65b0228ce7eca6f96e98435ae",
+  "source_commit_unchanged": true,
+  "inputs": {
+    "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/epoch_12.pth": {
+      "expected": "8ac489d3ad2d0f6ab9aa13fd5580ee89de884bd085ab70c5f23bfc7a84a80b75",
+      "actual": "8ac489d3ad2d0f6ab9aa13fd5580ee89de884bd085ab70c5f23bfc7a84a80b75",
+      "unchanged": true
+    },
+    "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/B_diameter75/epoch_12.pth": {
+      "expected": "9ad659e6780708f41d085281ffad1a7d080178645170ee80d12b24ff1f43ad09",
+      "actual": "9ad659e6780708f41d085281ffad1a7d080178645170ee80d12b24ff1f43ad09",
+      "unchanged": true
+    },
+    "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/diagnostic_states/base.pth": {
+      "expected": "29fd68dab60da484ae5428263f7ef769537306bd9546251f5f4bedf074d9d926",
+      "actual": "29fd68dab60da484ae5428263f7ef769537306bd9546251f5f4bedf074d9d926",
+      "unchanged": true
+    },
+    "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/diagnostic_states/new_premerge.pth": {
+      "expected": "e5989b67bde487eb82b0a1cbd73dc7e49a85c8298a978454f00e59016e7c3804",
+      "actual": "e5989b67bde487eb82b0a1cbd73dc7e49a85c8298a978454f00e59016e7c3804",
+      "unchanged": true
+    },
+    "/home/data/dq/cdiod-dgs/data/CDIOD/PascalVOC/valid/annotations_without_background.json": {
+      "expected": "31254ead511b0a6beb5199e5b78990991ca3beca6bf0ccbfc72328c95373cc0b",
+      "actual": "31254ead511b0a6beb5199e5b78990991ca3beca6bf0ccbfc72328c95373cc0b",
+      "unchanged": true
+    }
+  },
+  "cases": {
+    "A_merged_normal": {
+      "config_unchanged": true,
+      "strict_load_all_ranks": true,
+      "lora_unchanged_all_ranks": true,
+      "evaluated_image_records": 3422,
+      "unique_images": 3422,
+      "no_optimizer": true,
+      "training_started": false
+    },
+    "B_normal": {
+      "config_unchanged": true,
+      "strict_load_all_ranks": true,
+      "lora_unchanged_all_ranks": true,
+      "evaluated_image_records": 3422,
+      "unique_images": 3422,
+      "no_optimizer": true,
+      "training_started": false
+    },
+    "A_base_fixed0": {
+      "config_unchanged": true,
+      "strict_load_all_ranks": true,
+      "lora_unchanged_all_ranks": true,
+      "evaluated_image_records": 3422,
+      "unique_images": 3422,
+      "no_optimizer": true,
+      "training_started": false
+    },
+    "A_new_fixed0": {
+      "config_unchanged": true,
+      "strict_load_all_ranks": true,
+      "lora_unchanged_all_ranks": true,
+      "evaluated_image_records": 3422,
+      "unique_images": 3422,
+      "no_optimizer": true,
+      "training_started": false
+    },
+    "A_merged_fixed0": {
+      "config_unchanged": true,
+      "strict_load_all_ranks": true,
+      "lora_unchanged_all_ranks": true,
+      "evaluated_image_records": 3422,
+      "unique_images": 3422,
+      "no_optimizer": true,
+      "training_started": false
+    },
+    "B_old_fixed0": {
+      "config_unchanged": true,
+      "strict_load_all_ranks": true,
+      "lora_unchanged_all_ranks": true,
+      "evaluated_image_records": 3422,
+      "unique_images": 3422,
+      "no_optimizer": true,
+      "training_started": false
+    }
+  },
+  "passed": true
+}

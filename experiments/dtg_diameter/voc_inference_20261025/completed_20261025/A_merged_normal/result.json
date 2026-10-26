@@ -1,0 +1,23 @@
+{
+  "old15_ap": 0.6383415381471164,
+  "new5_ap": 0.6492580110450787,
+  "all20_ap": 0.641070656371607,
+  "per_task_ap": {
+    "PascalVOC_Task4-1": 0.584164850650646,
+    "PascalVOC_Task4-2": 0.6340151695628382,
+    "PascalVOC_Task4-3": 0.696844594227865,
+    "PascalVOC_Task4-4": 0.6492580110450787
+  },
+  "route_counts": {
+    "0": 3418,
+    "-1": 4
+  },
+  "reference_check": {
+    "passed": true,
+    "max_ap_error": 0.0
+  },
+  "elapsed_seconds": 517.406030247992,
+  "forced_group": null,
+  "diagnostic_reference": false,
+  "training_started": false
+}
