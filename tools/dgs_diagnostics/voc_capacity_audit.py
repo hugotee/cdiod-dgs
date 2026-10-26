@@ -152,13 +152,29 @@ class VOCCapacityKDAuditHook(VOCFeatureKDAuditHook):
                     assert x.scores.shape == y.scores.shape
                     identical_order &= bool(torch.equal(x.labels, y.labels))
                     cost = torch.cdist(x.bboxes.float(), y.bboxes.float(), p=1)
-                    cost += 10000*(x.labels[:, None] != y.labels[None, :])
+                    label_ok = x.labels[:, None] == y.labels[None, :]
+                    box_ok = ((x.bboxes[:, None]-y.bboxes[None, :]).abs() <=
+                              .02+1e-4*y.bboxes[None, :].abs()).all(-1)
+                    score_ok = (x.scores[:, None]-y.scores[None, :]).abs() <= (
+                        1e-5+1e-4*y.scores[None, :].abs())
+                    # A minimum *sum* of box distances can sacrifice one
+                    # duplicate detection even when a fully valid matching
+                    # exists. Prefer a matching satisfying every old tolerance.
+                    valid = label_ok & box_ok & score_ok
+                    cost += 1e9*(~valid)
                     i, j = linear_sum_assignment(cost.cpu().numpy())
                     i = torch.as_tensor(i, device=x.scores.device)
                     j = torch.as_tensor(j, device=y.scores.device)
                     assert torch.equal(x.labels[i], y.labels[j])
                     max_score = max(max_score, float((x.scores[i]-y.scores[j]).abs().max()))
                     max_box = max(max_box, float((x.bboxes[i]-y.bboxes[j]).abs().max()))
+                    write_json(self.directory/f'prediction_pairing_rank{self.rank}.json',
+                        dict(passed=bool(valid[i, j].all()),
+                            unmatched_detections=int((~valid[i, j]).sum()),
+                            maximum_score_absolute_error=max_score,
+                            maximum_box_absolute_error=max_box,
+                            encoder_maximum_absolute_errors=encoder_errors,
+                            score_atol=1e-5,box_atol=.02,rtol=1e-4))
                     assert torch.allclose(x.scores[i], y.scores[j], atol=1e-5, rtol=1e-4)
                     assert torch.allclose(x.bboxes[i], y.bboxes[j], atol=.02, rtol=1e-4)
                 return dict(passed=True, images=len(expanded), identical_labels=True,
