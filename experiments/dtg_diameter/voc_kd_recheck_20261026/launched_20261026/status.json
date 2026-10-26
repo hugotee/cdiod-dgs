@@ -1,0 +1,15 @@
+{
+  "stage": "train",
+  "updated_at": "2026-10-26T14:18:24.715917+08:00",
+  "driver_pid": 37944,
+  "training_started": true,
+  "name": "A_original",
+  "task_id": 3,
+  "phase_dir": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_kd_recheck_20261026_seed1498185232/branches/A_original",
+  "child_pid": 43695,
+  "log": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_kd_recheck_20261026_seed1498185232/branches/A_original/train.dual.log",
+  "gpu_ids": [
+    2,
+    3
+  ]
+}

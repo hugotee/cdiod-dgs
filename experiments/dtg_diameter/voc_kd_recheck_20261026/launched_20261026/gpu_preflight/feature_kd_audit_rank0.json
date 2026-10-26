@@ -1,0 +1,318 @@
+{
+  "rank": 0,
+  "world_size": 2,
+  "preflight": true,
+  "feature_type": "inter-class",
+  "subtype": "opt1",
+  "image_weight": 3.0,
+  "text_weight": 5.0,
+  "same_initial_lora_as_original_A": true,
+  "lora_tensors_verified": 96,
+  "teacher_lora_frozen": true,
+  "student_lora_tensors": 48,
+  "relation_calls": 32,
+  "calls_without_eligible_relations": 20,
+  "loss_observations": {
+    "inter_text_loss": 12,
+    "inter_query_loss": 12
+  },
+  "positive_loss_observations": {
+    "inter_text_loss": 12,
+    "inter_query_loss": 12
+  },
+  "backward_observations": {
+    "inter_text_loss": 12,
+    "inter_query_loss": 12
+  },
+  "positive_kd_feature_gradient_steps": 12,
+  "teacher_features_detached": true,
+  "audit_steps": 32,
+  "rows": [
+    {
+      "iteration": 1,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 2,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 3,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 4,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 5,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 6,
+      "losses": {
+        "inter_text_loss": 0.06392259895801544,
+        "inter_query_loss": 0.07368286699056625
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.08662048727273941,
+        0.9712986350059509
+      ]
+    },
+    {
+      "iteration": 7,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 8,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 9,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 10,
+      "losses": {
+        "inter_text_loss": 0.23173628747463226,
+        "inter_query_loss": 0.083251953125
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.09368100017309189,
+        1.0121899843215942
+      ]
+    },
+    {
+      "iteration": 11,
+      "losses": {
+        "inter_text_loss": 0.08056729286909103,
+        "inter_query_loss": 0.5019650459289551
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.059418004006147385,
+        0.5667597055435181
+      ]
+    },
+    {
+      "iteration": 12,
+      "losses": {
+        "inter_text_loss": 0.13421012461185455,
+        "inter_query_loss": 0.07254999130964279
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.014730803668498993,
+        0.10116676241159439
+      ]
+    },
+    {
+      "iteration": 13,
+      "losses": {
+        "inter_text_loss": 0.026181938126683235,
+        "inter_query_loss": 0.09412495791912079
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.010790020227432251,
+        0.08309158682823181
+      ]
+    },
+    {
+      "iteration": 14,
+      "losses": {
+        "inter_text_loss": 0.1244325116276741,
+        "inter_query_loss": 0.13336043059825897
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.02366870827972889,
+        0.27078568935394287
+      ]
+    },
+    {
+      "iteration": 15,
+      "losses": {
+        "inter_text_loss": 0.009346840903162956,
+        "inter_query_loss": 0.10106410086154938
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.004675023723393679,
+        0.02852575294673443
+      ]
+    },
+    {
+      "iteration": 16,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 17,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 18,
+      "losses": {
+        "inter_text_loss": 0.04066971689462662,
+        "inter_query_loss": 0.5655149221420288
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.151940256357193,
+        1.6398661136627197
+      ]
+    },
+    {
+      "iteration": 19,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 20,
+      "losses": {
+        "inter_text_loss": 0.022747954353690147,
+        "inter_query_loss": 0.02626679837703705
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.02008282020688057,
+        0.11881640553474426
+      ]
+    },
+    {
+      "iteration": 21,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 22,
+      "losses": {
+        "inter_text_loss": 0.06481944769620895,
+        "inter_query_loss": 0.1982559710741043
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.2859870493412018,
+        1.1094247102737427
+      ]
+    },
+    {
+      "iteration": 23,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 24,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 25,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 26,
+      "losses": {
+        "inter_text_loss": 0.002477457746863365,
+        "inter_query_loss": 0.030099056661128998
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.060937702655792236,
+        0.48836565017700195
+      ]
+    },
+    {
+      "iteration": 27,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 28,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 29,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 30,
+      "losses": {
+        "inter_text_loss": 0.012568081729114056,
+        "inter_query_loss": 0.10593681782484055
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.04931587725877762,
+        0.30894935131073
+      ]
+    },
+    {
+      "iteration": 31,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 32,
+      "losses": {},
+      "backward": {}
+    }
+  ],
+  "passed": true,
+  "first32_input_sha256": "1a0ad750ede300291811751b60a782913f4e25d11939f7ffdd261d449eda5c4b",
+  "same_first32_inputs_as_original_A": true,
+  "student_lora_updated": true,
+  "teacher_lora_unchanged": true,
+  "completed_training_iterations": 32
+}

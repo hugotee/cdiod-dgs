@@ -1,0 +1,9 @@
+{
+  "reused": true,
+  "source": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/B_diameter75",
+  "checkpoint": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/B_diameter75/epoch_12.pth",
+  "checkpoint_sha256": "9ad659e6780708f41d085281ffad1a7d080178645170ee80d12b24ff1f43ad09",
+  "model_type": "GroundingDINO_DGS_Base",
+  "no_distillation_config_in_model": true,
+  "model_loss_source_unchanged_since_training": true
+}

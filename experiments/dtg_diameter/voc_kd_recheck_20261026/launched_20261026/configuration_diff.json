@@ -1,0 +1,83 @@
+[
+  {
+    "path": "custom_hooks.4",
+    "before": null,
+    "after": {
+      "type": "VOCFeatureKDAuditHook",
+      "reference_base": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/diagnostic_states/base.pth",
+      "reference_branch": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original",
+      "preflight": false,
+      "audit_steps": 32
+    }
+  },
+  {
+    "path": "custom_imports.imports.1",
+    "before": null,
+    "after": "tools.dgs_diagnostics.voc_kd_audit"
+  },
+  {
+    "path": "diagnostic_protocol.feature_distillation_configuration",
+    "before": "inter-intra retained; implementation checks inter-class",
+    "after": "inter-class enables existing topology KD, weights3/5"
+  },
+  {
+    "path": "diagnostic_protocol.gpu_ids.0",
+    "before": 1,
+    "after": 2
+  },
+  {
+    "path": "diagnostic_protocol.kind",
+    "before": "VOC_single_domain_AB",
+    "after": "VOC_stage4_feature_KD_recheck"
+  },
+  {
+    "path": "distn_cfg.feat_distn.type",
+    "before": "inter-intra",
+    "after": "inter-class"
+  },
+  {
+    "path": "model.bbox_head.distn_cfg.feat_distn.type",
+    "before": "inter-intra",
+    "after": "inter-class"
+  },
+  {
+    "path": "model.distn_cfg.feat_distn.type",
+    "before": "inter-intra",
+    "after": "inter-class"
+  },
+  {
+    "path": "model.domain_predictor_cfg.grouping_trace_path",
+    "before": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/grouping_trace.jsonl",
+    "after": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_kd_recheck_20261026_seed1498185232/branches/A_original/grouping_trace.jsonl"
+  },
+  {
+    "path": "model.domain_predictor_cfg.task_id_mapping_path",
+    "before": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/task_id_mapping.yaml",
+    "after": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_kd_recheck_20261026_seed1498185232/branches/A_original/task_id_mapping.yaml"
+  },
+  {
+    "path": "test_evaluator.metrics.0.outfile_prefix",
+    "before": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/validation_predictions",
+    "after": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_kd_recheck_20261026_seed1498185232/branches/A_original/validation_predictions"
+  },
+  {
+    "path": "train_dataloader.dataset.distn_cfg.feat_distn.type",
+    "before": "inter-intra",
+    "after": "inter-class"
+  },
+  {
+    "path": "train_dataloader.dataset.distn_cfg.task_id_mapping_path",
+    "before": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/task_id_mapping.yaml",
+    "after": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_kd_recheck_20261026_seed1498185232/branches/A_original/task_id_mapping.yaml"
+  },
+  {
+    "path": "val_evaluator.metrics.0.outfile_prefix",
+    "before": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original/validation_predictions",
+    "after": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_kd_recheck_20261026_seed1498185232/branches/A_original/validation_predictions"
+  },
+  {
+    "path": "work_dir",
+    "before": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_ab_20261024_seed1498185232/branches/A_original",
+    "after": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_kd_recheck_20261026_seed1498185232/branches/A_original"
+  }
+]
