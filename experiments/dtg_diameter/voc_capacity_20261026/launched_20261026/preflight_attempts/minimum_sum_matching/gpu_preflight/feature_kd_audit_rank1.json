@@ -1,0 +1,33 @@
+{
+  "rank": 1,
+  "world_size": 2,
+  "preflight": true,
+  "feature_type": "inter-class",
+  "subtype": "opt1",
+  "image_weight": 3.0,
+  "text_weight": 5.0,
+  "lora_tensors_verified": 96,
+  "teacher_lora_frozen": true,
+  "student_lora_tensors": 48,
+  "relation_calls": 0,
+  "calls_without_eligible_relations": 0,
+  "loss_observations": {
+    "inter_text_loss": 0,
+    "inter_query_loss": 0
+  },
+  "positive_loss_observations": {
+    "inter_text_loss": 0,
+    "inter_query_loss": 0
+  },
+  "backward_observations": {
+    "inter_text_loss": 0,
+    "inter_query_loss": 0
+  },
+  "positive_kd_feature_gradient_steps": 0,
+  "teacher_features_detached": true,
+  "audit_steps": 32,
+  "rows": [],
+  "passed": false,
+  "same_initial_lora_as_expanded_reference": true,
+  "reference_kind": "function-preserving rank32 expansion of original A base"
+}

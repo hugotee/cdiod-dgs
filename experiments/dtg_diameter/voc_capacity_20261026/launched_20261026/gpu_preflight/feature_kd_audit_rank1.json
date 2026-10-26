@@ -1,0 +1,299 @@
+{
+  "rank": 1,
+  "world_size": 2,
+  "preflight": true,
+  "feature_type": "inter-class",
+  "subtype": "opt1",
+  "image_weight": 3.0,
+  "text_weight": 5.0,
+  "lora_tensors_verified": 96,
+  "teacher_lora_frozen": true,
+  "student_lora_tensors": 48,
+  "relation_calls": 32,
+  "calls_without_eligible_relations": 22,
+  "loss_observations": {
+    "inter_text_loss": 10,
+    "inter_query_loss": 10
+  },
+  "positive_loss_observations": {
+    "inter_text_loss": 10,
+    "inter_query_loss": 10
+  },
+  "backward_observations": {
+    "inter_text_loss": 10,
+    "inter_query_loss": 10
+  },
+  "positive_kd_feature_gradient_steps": 10,
+  "teacher_features_detached": true,
+  "audit_steps": 32,
+  "rows": [
+    {
+      "iteration": 1,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 2,
+      "losses": {
+        "inter_text_loss": 0.3359535336494446,
+        "inter_query_loss": 0.2319955825805664
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.04484374076128006,
+        0.7433446645736694
+      ]
+    },
+    {
+      "iteration": 3,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 4,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 5,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 6,
+      "losses": {
+        "inter_text_loss": 0.08960425853729248,
+        "inter_query_loss": 0.011670658364892006
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.011824296787381172,
+        0.1585918813943863
+      ]
+    },
+    {
+      "iteration": 7,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 8,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 9,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 10,
+      "losses": {
+        "inter_text_loss": 0.19984953105449677,
+        "inter_query_loss": 0.41404664516448975
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.0069993846118450165,
+        0.10670467466115952
+      ]
+    },
+    {
+      "iteration": 11,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 12,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 13,
+      "losses": {
+        "inter_text_loss": 0.11450092494487762,
+        "inter_query_loss": 0.0808810368180275
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.08727318793535233,
+        0.9999932050704956
+      ]
+    },
+    {
+      "iteration": 14,
+      "losses": {
+        "inter_text_loss": 0.031295910477638245,
+        "inter_query_loss": 0.011161905713379383
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.009838009253144264,
+        0.09449834376573563
+      ]
+    },
+    {
+      "iteration": 15,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 16,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 17,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 18,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 19,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 20,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 21,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 22,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 23,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 24,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 25,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 26,
+      "losses": {
+        "inter_text_loss": 0.01172646414488554,
+        "inter_query_loss": 0.08890755474567413
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.02920386753976345,
+        0.19187015295028687
+      ]
+    },
+    {
+      "iteration": 27,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 28,
+      "losses": {
+        "inter_text_loss": 0.1350967139005661,
+        "inter_query_loss": 0.04695746675133705
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.012539650313556194,
+        0.09727824479341507
+      ]
+    },
+    {
+      "iteration": 29,
+      "losses": {
+        "inter_text_loss": 0.19117340445518494,
+        "inter_query_loss": 0.14329753816127777
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.02594468742609024,
+        0.15455646812915802
+      ]
+    },
+    {
+      "iteration": 30,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 31,
+      "losses": {
+        "inter_text_loss": 0.04704776406288147,
+        "inter_query_loss": 0.07307865470647812
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.011688841506838799,
+        0.18962961435317993
+      ]
+    },
+    {
+      "iteration": 32,
+      "losses": {
+        "inter_text_loss": 0.18403661251068115,
+        "inter_query_loss": 0.06601999700069427
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      },
+      "kd_feature_gradient_norms": [
+        0.058301039040088654,
+        0.47032949328422546
+      ]
+    }
+  ],
+  "passed": true,
+  "same_initial_lora_as_expanded_reference": true,
+  "reference_kind": "function-preserving rank32 expansion of original A base",
+  "first32_input_sha256": "a7531361a97de1221214e481023faf9b259f484d59df4d5ff9b5a51f1b8bd154",
+  "same_first32_inputs_as_original_A": true,
+  "student_lora_updated": true,
+  "teacher_lora_unchanged": true,
+  "completed_training_iterations": 32
+}

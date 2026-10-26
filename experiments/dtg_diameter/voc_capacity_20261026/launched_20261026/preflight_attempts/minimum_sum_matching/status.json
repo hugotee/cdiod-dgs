@@ -1,0 +1,17 @@
+{
+  "stage": "failed",
+  "updated_at": "2026-10-26T23:00:06.721533+08:00",
+  "driver_pid": 13040,
+  "gpu_ids": [
+    2,
+    3
+  ],
+  "child_pid": 13644,
+  "training_started": false,
+  "disposable_preflight_training": true,
+  "phase_dir": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_capacity_20261026_seed1498185232/gpu_preflight",
+  "config": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_capacity_20261026_seed1498185232/gpu_preflight/train_config.py",
+  "log": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_capacity_20261026_seed1498185232/gpu_preflight/train.log",
+  "name": "C_shared_rank32",
+  "error": "Training process failed: /home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_capacity_20261026_seed1498185232/gpu_preflight/train.log"
+}

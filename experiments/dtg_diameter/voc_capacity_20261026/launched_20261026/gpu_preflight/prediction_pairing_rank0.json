@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "unmatched_detections": 0,
+  "maximum_score_absolute_error": 0.0,
+  "maximum_box_absolute_error": 0.0,
+  "encoder_maximum_absolute_errors": [
+    0.0,
+    0.0
+  ],
+  "score_atol": 1e-05,
+  "box_atol": 0.02,
+  "rtol": 0.0001
+}

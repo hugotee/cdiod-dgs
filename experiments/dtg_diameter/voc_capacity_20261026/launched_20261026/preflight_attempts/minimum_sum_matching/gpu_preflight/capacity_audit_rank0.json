@@ -1,0 +1,25 @@
+{
+  "rank": 0,
+  "preflight": true,
+  "initial": {
+    "passed": true,
+    "lora_pairs": 48,
+    "old_rank": 16,
+    "new_rank": 32,
+    "old_alpha": 32.0,
+    "new_alpha": 64.0,
+    "scaling": 2.0,
+    "non_lora_tensors_identical": true,
+    "random_extra_A": true,
+    "zero_extra_B": true,
+    "maximum_effective_weight_absolute_error": 0.0
+  },
+  "trainable_lora_parameters": 1376256,
+  "teacher_lora_parameters": 1376256,
+  "final_lora_budget": 1376256,
+  "B_final_lora_budget": 1376256,
+  "exact_total_or_trainable_parameter_match": false,
+  "finite_nonzero_extra_B_gradient_observations": 0,
+  "full_detector_prediction_check": null,
+  "passed": false
+}

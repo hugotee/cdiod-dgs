@@ -1,0 +1,16 @@
+{
+  "stage": "train",
+  "updated_at": "2026-10-26T23:07:02.054309+08:00",
+  "driver_pid": 37932,
+  "gpu_ids": [
+    2,
+    3
+  ],
+  "child_pid": 42089,
+  "training_started": true,
+  "disposable_preflight_training": false,
+  "phase_dir": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_capacity_20261026_seed1498185232/branches/C_shared_rank32",
+  "config": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_capacity_20261026_seed1498185232/branches/C_shared_rank32/train_config.py",
+  "log": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_capacity_20261026_seed1498185232/branches/C_shared_rank32/train.dual.log",
+  "name": "C_shared_rank32"
+}

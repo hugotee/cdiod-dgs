@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "real_LoraLinearRep": true,
+  "function_preserved": true,
+  "extra_B_nonzero_gradient": 4.969280242919922,
+  "extra_B_updated": true,
+  "teacher_frozen": true,
+  "existing_merge_supports_rank32": true
+}

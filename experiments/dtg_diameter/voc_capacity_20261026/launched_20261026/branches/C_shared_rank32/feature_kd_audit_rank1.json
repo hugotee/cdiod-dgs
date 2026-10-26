@@ -1,0 +1,255 @@
+{
+  "rank": 1,
+  "world_size": 2,
+  "preflight": false,
+  "feature_type": "inter-class",
+  "subtype": "opt1",
+  "image_weight": 3.0,
+  "text_weight": 5.0,
+  "lora_tensors_verified": 96,
+  "teacher_lora_frozen": true,
+  "student_lora_tensors": 48,
+  "relation_calls": 32,
+  "calls_without_eligible_relations": 22,
+  "loss_observations": {
+    "inter_text_loss": 10,
+    "inter_query_loss": 10
+  },
+  "positive_loss_observations": {
+    "inter_text_loss": 10,
+    "inter_query_loss": 10
+  },
+  "backward_observations": {
+    "inter_text_loss": 10,
+    "inter_query_loss": 10
+  },
+  "positive_kd_feature_gradient_steps": 0,
+  "teacher_features_detached": true,
+  "audit_steps": 32,
+  "rows": [
+    {
+      "iteration": 1,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 2,
+      "losses": {
+        "inter_text_loss": 0.3359535336494446,
+        "inter_query_loss": 0.2319955825805664
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      }
+    },
+    {
+      "iteration": 3,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 4,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 5,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 6,
+      "losses": {
+        "inter_text_loss": 0.08963935822248459,
+        "inter_query_loss": 0.011869627051055431
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      }
+    },
+    {
+      "iteration": 7,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 8,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 9,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 10,
+      "losses": {
+        "inter_text_loss": 0.19987009465694427,
+        "inter_query_loss": 0.4139620363712311
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      }
+    },
+    {
+      "iteration": 11,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 12,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 13,
+      "losses": {
+        "inter_text_loss": 0.11444081366062164,
+        "inter_query_loss": 0.07190079241991043
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      }
+    },
+    {
+      "iteration": 14,
+      "losses": {
+        "inter_text_loss": 0.031086716800928116,
+        "inter_query_loss": 0.01230623759329319
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      }
+    },
+    {
+      "iteration": 15,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 16,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 17,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 18,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 19,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 20,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 21,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 22,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 23,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 24,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 25,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 26,
+      "losses": {
+        "inter_text_loss": 0.01142953336238861,
+        "inter_query_loss": 0.09307558834552765
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      }
+    },
+    {
+      "iteration": 27,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 28,
+      "losses": {
+        "inter_text_loss": 0.13508479297161102,
+        "inter_query_loss": 0.04650581255555153
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      }
+    },
+    {
+      "iteration": 29,
+      "losses": {
+        "inter_text_loss": 0.19117341935634613,
+        "inter_query_loss": 0.14559906721115112
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      }
+    },
+    {
+      "iteration": 30,
+      "losses": {},
+      "backward": {}
+    },
+    {
+      "iteration": 31,
+      "losses": {
+        "inter_text_loss": 0.04695221781730652,
+        "inter_query_loss": 0.07218742370605469
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      }
+    },
+    {
+      "iteration": 32,
+      "losses": {
+        "inter_text_loss": 0.18637564778327942,
+        "inter_query_loss": 0.04492875188589096
+      },
+      "backward": {
+        "inter_text_loss": true,
+        "inter_query_loss": true
+      }
+    }
+  ],
+  "passed": true,
+  "same_initial_lora_as_expanded_reference": true,
+  "reference_kind": "function-preserving rank32 expansion of original A base",
+  "same_first32_inputs_as_original_A": true
+}
