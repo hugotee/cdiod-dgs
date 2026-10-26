@@ -73,7 +73,7 @@ def prepare(args):
     cfg.custom_imports.imports = ['projects.DGS.dgs', 'tools.dgs_diagnostics.voc_ab_train',
                                  'tools.dgs_diagnostics.voc_capacity_audit']
     cfg.custom_hooks = [h for h in cfg.custom_hooks
-                        if h.type not in ['VOCFeatureKDAuditHook','VOCDiagnosticAuditHook']]
+                        if h['type'] not in ['VOCFeatureKDAuditHook','VOCDiagnosticAuditHook']]
     cfg.custom_hooks.append(dict(type='VOCDiagnosticAuditHook'))
     audit = dict(type='VOCCapacityKDAuditHook', reference_base=str(checkpoint),
         original_base=str(original_base), reference_branch=str(original/'branches/A_original'),
@@ -102,7 +102,7 @@ def prepare(args):
     probe.model.domain_predictor_cfg.task_id_mapping_path = str(probe_mapping)
     probe.model.domain_predictor_cfg.grouping_trace_path = str(preflight/'grouping_trace.jsonl')
     probe.train_dataloader.dataset.distn_cfg.task_id_mapping_path = str(probe_mapping)
-    probe.custom_hooks = [copy.deepcopy(h) for h in cfg.custom_hooks if h.type=='WeightsTransformHook']
+    probe.custom_hooks = [copy.deepcopy(h) for h in cfg.custom_hooks if h['type']=='WeightsTransformHook']
     probe.custom_hooks.append(dict(audit, preflight=True))
     probe.default_hooks.checkpoint = None
     probe.default_hooks.logger.interval = 8
