@@ -115,6 +115,11 @@ class VOCCapacityKDAuditHook(VOCFeatureKDAuditHook):
         python_state, numpy_state = random.getstate(), np.random.get_state()
         was_training = self.model.training
         handles = []
+        encoder_outputs = []
+        def capture_encoder(module, inputs, output):
+            values = output if isinstance(output, (tuple, list)) else output.values()
+            encoder_outputs.append([v.detach().cpu().clone() for v in values if torch.is_tensor(v)])
+        handles.append(self.model.encoder.register_forward_hook(capture_encoder))
         try:
             with torch.random.fork_rng(devices=[torch.cuda.current_device()]):
                 self.model.eval()
@@ -131,17 +136,36 @@ class VOCCapacityKDAuditHook(VOCFeatureKDAuditHook):
                             handles.append(module.register_forward_hook(old_forward))
                     reference = self.model.test_step(copy.deepcopy(data_batch))
                 assert len(expanded) == len(reference)
+                encoder_errors = []
+                for x, y in zip(encoder_outputs[0], encoder_outputs[1]):
+                    encoder_errors.append(float((x-y).abs().max()))
+                    assert torch.allclose(x, y, atol=1e-5, rtol=1e-4)
+                # Detection outputs are sets: close scores can permute top-k
+                # ordering after a GEMM rank change, even with identical BA.
+                # Match by class and geometry, retaining the original numeric
+                # tolerances instead of demanding an arbitrary list ordering.
+                from scipy.optimize import linear_sum_assignment
                 max_score, max_box = 0., 0.
+                identical_order = True
                 for new, old in zip(expanded, reference):
                     x, y = new.pred_instances, old.pred_instances
-                    assert torch.equal(x.labels, y.labels)
                     assert x.scores.shape == y.scores.shape
-                    max_score = max(max_score, float((x.scores-y.scores).abs().max()))
-                    max_box = max(max_box, float((x.bboxes-y.bboxes).abs().max()))
-                    assert torch.allclose(x.scores, y.scores, atol=1e-5, rtol=1e-4)
-                    assert torch.allclose(x.bboxes, y.bboxes, atol=.02, rtol=1e-4)
+                    identical_order &= bool(torch.equal(x.labels, y.labels))
+                    cost = torch.cdist(x.bboxes.float(), y.bboxes.float(), p=1)
+                    cost += 10000*(x.labels[:, None] != y.labels[None, :])
+                    i, j = linear_sum_assignment(cost.cpu().numpy())
+                    i = torch.as_tensor(i, device=x.scores.device)
+                    j = torch.as_tensor(j, device=y.scores.device)
+                    assert torch.equal(x.labels[i], y.labels[j])
+                    max_score = max(max_score, float((x.scores[i]-y.scores[j]).abs().max()))
+                    max_box = max(max_box, float((x.bboxes[i]-y.bboxes[j]).abs().max()))
+                    assert torch.allclose(x.scores[i], y.scores[j], atol=1e-5, rtol=1e-4)
+                    assert torch.allclose(x.bboxes[i], y.bboxes[j], atol=.02, rtol=1e-4)
                 return dict(passed=True, images=len(expanded), identical_labels=True,
                     maximum_score_absolute_error=max_score, maximum_box_absolute_error=max_box,
+                    encoder_maximum_absolute_errors=encoder_errors,
+                    identical_label_order=identical_order,
+                    detection_comparison='one-to-one class/geometry matching; original tolerances',
                     mode='full-detector FP32 prediction, rank32 versus original rank16 slices')
         finally:
             for handle in handles:
