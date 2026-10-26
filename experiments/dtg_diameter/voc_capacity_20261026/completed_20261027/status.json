@@ -1,0 +1,11 @@
+{
+  "stage": "complete",
+  "updated_at": "2026-10-27T01:48:20.800283+08:00",
+  "driver_pid": 37932,
+  "gpu_ids": [
+    2,
+    3
+  ],
+  "training_started": true,
+  "comparison": "/home/data/dq/cdiod-dgs/work_dirs/dtg_diagnostics/voc_capacity_20261026_seed1498185232/comparison.json"
+}
